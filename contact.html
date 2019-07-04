@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Quotes Collection</title>
+
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap" rel="stylesheet"> 
+
+  <link rel="stylesheet" type="text/css" href="css/main.css">
+  
+</head>
+<body>
+  <div class="page-overlay page-overlay--js page-overlay--onload"></div>
+
+  <section class="container">
+    <!-- MAIN HEADER -->
+    <header class="header">
+      <div class="header__container">
+        <h1 class="header__heading">Contact</h1>
+        <p class="header__description header__description--js">Feel free to contact me anytime!</p>
+      </div>
+
+      <nav class="nav">
+
+        <!-- BURGER BUTTON -->
+        <button class="button nav__burger-button nav__burger-button--js">
+          <img src="assets/svg/burger-button-upper.svg" class="burger-button__upper burger-button__upper--js" alt="burger upper part">
+          <img src="assets/svg/burger-button-bottom.svg" class="burger-button__bottom burger-button__bottom--js" alt="burger bottom part">
+        </button> <!-- END OF BURGER BUTTON -->
+
+        <!-- GRID MENU -->
+        <ul class="nav__list nav__list--grid nav__list--grid-js">
+          <li class="nav__item nav__item--grid">
+            <a href="index.html" class="nav__link nav__link--grid nav__link--grid-menu nav__link--js">start</a>
+          </li>
+          <li class="nav__item nav__item--grid nav__item--grid-random">
+            <a href="#" class="nav__link nav__link--grid nav__link--grid-random nav__link--js">random</a>
+          </li>
+          <li class="nav__item nav__item--grid nav__item--grid-contact">
+            <a href="contact.html" class="nav__link nav__link--grid nav__link--grid-contact nav__link--js">contact</a>
+          </li>
+        </ul> <!-- END OF GRID MENU -->
+      </nav>
+    </header> <!-- END OF MAIN HEADER -->
+
+    <!-- COINTACT -->
+    <main class="form__container">
+      <form action="http://dev.cotenfrontend.pl" method="post" class="form">
+        <p class="form__element">
+          <label for="name" class="form__label">Your name:</label>
+          <input type="text" name="name" id="name" class="form__input" autofocus>
+        </p>
+        <p class="form__element">
+          <label for="email" class="form__label">Your e-mail:</label>
+          <input type="email" name="email" id="email" class="form__input" required>
+        </p>
+        <p class="form__element">
+          <label for="phone" class="form__label">Your phone number:</label>
+          <input type="tel" name="phone" id="phone" class="form__input" pattern="[0-9]{3}-[0-9]{3}-[0-9]{3}" placeholder="XXX-XXX-XXX">
+        </p>
+        <div class="form__element">
+          <label for="day" class="form__label">Your birth date:</label>
+          <div class="form__birthdate">
+            <input type="number" name="birthdate" id="day" class="form__input form__input--birthdate">
+            <input type="number" name="birthdate" id="month" class="form__input form__input--birthdate">
+            <input type="number" name="birthdate" id="year" class="form__input form__input--birthdate">
+          </div>
+        </div>
+        <p class="form__element">
+          <label for="description" class="form__label">Your message:</label>
+          <textarea name="description" id="description" cols="30" rows="10" class="form__description"></textarea>
+        </p>
+        <fieldset class="form__element form__element--fieldset">
+          <div>
+            <legend class="form__legend">Are you a robot ?</legend>
+          </div>
+          <div class="form__radio-set">
+            <p class="form__radio">
+              <label for="radio1" class="form__label">No, I'm not a robot</label>
+              <input type="radio" name="radio" value="accept" id="radio1" class="form__input-radio">
+            </p>
+            <p class="form__radio">
+              <label for="radio2" class="form__label">Yes, I'm</label>
+              <input type="radio" name="radio" value="reject" id="radio2" class="form__input-radio">
+            </p>
+          </div>
+        </fieldset>
+        <div class="form__element">
+          <button type="submit" class="form__submit-button">SEND</button>
+        </div>
+      </form>
+    </main> <!-- END OF CONTACT -->
+
+    <!-- FOOTER -->
+    <footer class="footer footer--grid">
+      <h2 class="footer__heading visuallyhidden">Copyrights</h2>
+      <p class="footer__copyright">
+        Copyright &copy; 2019, Jakub Chojna. All rights reserved. Photography by Jakub Chojna
+      </p>
+    </footer> <!-- END OF FOOTER -->
+  </section>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
