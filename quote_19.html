@@ -22,7 +22,9 @@
         <p class="header__description header__description--js">This website contains many useful quotations. Everyday a new quote!</p>
       </div>
       <nav class="nav">
-        <ul class="nav__list">
+
+        <!-- FLEX MENU -->
+        <ul class="nav__flex-list">
           <li class="nav__item">
             <a href="quote_18.html" class="nav__link nav__link--icon nav__link--js">
               <i class="fas fa-angle-left"></i>
@@ -36,22 +38,31 @@
               <i class="fas fa-angle-right"></i>
             </a>
           </li>
-        </ul>
-        <ul class="nav__list nav__list--grid nav__list--grid-js">
-          <li class="nav__item nav__item--grid">
-            <a href="index.html" class="nav__link nav__link--grid nav__link--grid-menu nav__link--js">start</a>
+        </ul> <!-- END OF FLEX MENU -->
+        
+        <!-- GRID MENU -->
+        <ul class="nav__flex-list nav__grid-list nav__grid-list--js">
+          <li class="nav__item nav__grid-item">
+            <a href="index.html" class="nav__link nav__grid-link nav__grid-link--menu nav__link--js">start</a>
           </li>
-          <li class="nav__item nav__item--grid nav__item--grid-random">
-            <a href="#" class="nav__link nav__link--grid nav__link--grid-random nav__link--js">random</a>
+          <li class="nav__item nav__grid-item nav__grid-item--contact">
+            <a href="contact.html" class="nav__link nav__grid-link nav__grid-link--contact nav__link--js">contact</a>
           </li>
-          <li class="nav__item nav__item--grid nav__item--grid-contact">
-            <a href="contact.html" class="nav__link nav__link--grid nav__link--grid-contact nav__link--js">contact</a>
-          </li>
-        </ul>
-        <button class="button nav__burger-button nav__burger-button--js">
-          <img src="assets/svg/burger-button-upper.svg" class="burger-button__upper burger-button__upper--js" alt="burger upper part">
-          <img src="assets/svg/burger-button-bottom.svg" class="burger-button__bottom burger-button__bottom--js" alt="burger bottom part">
-        </button>
+        </ul> <!-- END OF GRID MENU -->
+        
+        <div class="buttons">
+          <!-- BURGER BUTTON -->
+          <button class="button buttons__burger buttons__burger--js">
+            <img src="assets/svg/burger-button-upper.svg" class="buttons__burger-upper buttons__burger-upper--js" alt="burger upper part">
+            <img src="assets/svg/burger-button-bottom.svg" class="buttons__burger-bottom buttons__burger-bottom--js" alt="burger bottom part">
+          </button> <!-- END OF BURGER BUTTON -->
+  
+          <!-- RANDOM BUTTON -->
+          <a href="#" class="buttons__random buttons__random--js">
+            <img src="assets/dice.svg" alt="dice" class="buttons__random--svg">
+          </a> <!-- END OF RANDOM BUTTON -->
+        </div>
+        
       </nav>
     </header> <!-- END OF MAIN HEADER -->
 
@@ -83,6 +94,6 @@
     </footer> <!-- END OF FOOTER -->
   </section>
 
-  <script src="../js/main.js"></script>
+  <script src="js/main.js"></script>
 </body>
 </html>
