@@ -1,12 +1,16 @@
+// overall
+$images-amount: 27;
+
+// colors
 $color-main: rgb(96, 210, 214);
 $color-secondary: #dfd12f;
-$color-mobile-menu-background: #aaa;
-
+// size
 $layout-mobile-menu-margin: 30px;
-$container-width: 1000px;
-$border-radius: 1rem;
-
+$layout-container-width: 1000px;
+$layout-border-radius: 1rem;
+$size-buttons: 100px;
+// media
 $media-first-breakpoint: 768px;
 $media-second-breakpoint: 1280px;
-
+// time
 $time-mobile-menu: 0.5s;

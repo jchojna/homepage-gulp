@@ -1,9 +1,9 @@
 const pageOverlay = document.querySelector('.page-overlay--js');
 const headerDescription = document.querySelector('.header__description--js');
-const burgerButton = document.querySelector('.nav__burger-button--js');
-const navListGrid = document.querySelector('.nav__list--grid-js');
-const burgerButtonUpperPart = document.querySelector('.burger-button__upper--js');
-const randomButton = document.querySelector('.nav__link--grid-random');
+const burgerButton = document.querySelector('.buttons__burger--js');
+const navListGrid = document.querySelector('.nav__grid-list--js');
+const burgerButtonUpperPart = document.querySelector('.buttons__burger-upper--js');
+const randomButton = document.querySelector('.buttons__random--js');
 
 const amountOfImages = 26;
 
@@ -29,8 +29,8 @@ const delayLink = (element) => {
 }
 
 const handleMobileMenu = () => {
-  burgerButtonUpperPart.classList.toggle('burger-button__upper--open');
-  navListGrid.classList.toggle('nav__list--grid-visible');
+  burgerButtonUpperPart.classList.toggle('buttons__burger-upper--open');
+  navListGrid.classList.toggle('nav__grid-list--visible');
 }
 
 const make2DigitsNumber = (number) => {
@@ -52,8 +52,8 @@ const generateMobileMenu = (parent) => {
     navItemGrid = document.createElement('li');
     navLinkGrid = document.createElement('a');
     currentNumber = make2DigitsNumber(i);
-    navItemGrid.className = "nav__item nav__item--grid";
-    navLinkGrid.className = `nav__link nav__link--grid nav__link--grid-${i} nav__link--js`;
+    navItemGrid.className = "nav__item nav__grid-item";
+    navLinkGrid.className = `nav__link nav__grid-link nav__grid-link--${i} nav__link--js`;
     parent.appendChild(navItemGrid);
     navItemGrid.appendChild(navLinkGrid);
 
@@ -95,6 +95,7 @@ generateRandomUrl(randomButton);
 */
 
 burgerButton.addEventListener('click', handleMobileMenu);
+
 if ( navListGrid.children.length <= 3 ) {
   generateMobileMenu(navListGrid);
 }
