@@ -28,7 +28,7 @@ button {
 }
 
 .fas {
-  font-size: 3rem;
+  font-size: 2rem;
   pointer-events: none;
 }
 
@@ -126,7 +126,7 @@ button {
   }
   
   &__heading {
-    font-size: 2rem;
+    font-size: 1.6rem;
     margin: 0;
     margin-bottom: 0.5rem;
   }
@@ -177,7 +177,6 @@ button {
 .nav {
   @include flex-center;
   margin-top: 1rem;
-  font-size: 1rem;
   text-align: center;
   width: 100%;
 
@@ -210,9 +209,10 @@ button {
   
   &__grid-list {
     width: 100%;
+    max-width: $media-second-breakpoint;
     height: 100%;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(150px,1fr));
+    grid-template-columns: repeat(auto-fill, minmax(120px,1fr));
     grid-gap: $layout-sm-grid-gap $layout-sm-grid-gap; 
     justify-items: stretch;
     align-items: stretch;
@@ -254,8 +254,9 @@ button {
       transition: all 0.3s;
     }
 
-    &--hidden {
-      visibility: hidden;
+    &--disabled {
+      opacity: 0.5;
+      pointer-events: none;
     }
   }
   
@@ -285,13 +286,17 @@ button {
   
   &__day {
     color: $color-main;
-    font-size: 1.5rem;
-    font-weight: 600;
+    font-size: 1.2rem;
+    font-weight: 800;
     margin: 0 1rem;
   }
 
   @media only screen and (min-width: $media-first-breakpoint) {
  
+    & {
+      justify-content: flex-start;
+    }
+
     &__grid-list {
       padding: 100px;
     }
@@ -319,12 +324,12 @@ button {
 .buttons {
   position: fixed;  // MIXIN
   top: 0;
-  left: 0;
+  right: 0;
   width: 100%;
   display: flex;
   flex-direction: row-reverse;
   justify-content: space-between;
-  align-items: flex-end;
+  align-items: flex-start;
   padding: $layout-sm-buttons-offset;
   background-color: rgba(0,0,0,0);
   transition: all $time-mobile-menu;
@@ -337,6 +342,12 @@ button {
 
   @media only screen and (min-width: $media-first-breakpoint) {
 
+    & {
+      width: 200px;
+      flex-direction: column;
+      align-items: flex-end;
+    }
+
     &--background {
       background: none;
     }
@@ -348,13 +359,12 @@ button {
   opacity: 1;
   width: 100%;
   max-width: $size-sm-buttons;
-  min-height: $size-sm-buttons;
   transition: visibility 0s, opacity $time-mobile-menu;
 
   &--burger {
     cursor: pointer;
-    justify-self: flex-end;
     transition: transform 0.3s;
+    height: $size-sm-buttons;
 
     &:hover {
       color: $color-main;
@@ -369,11 +379,12 @@ button {
     transition: transform 0.5s;
 
     &--open {
-      transform: rotateZ(-45deg);
+      transform: rotateZ(-20deg);
     }
   }
 
   &--random {
+
     &:hover {
       animation: shake 0.9s cubic-bezier(.36,.07,.19,.97);
       transform: translate(0, 0);
@@ -388,6 +399,13 @@ button {
   
   &--bigger {
     max-width: $size-sm-buttons * 1.5;
+  }
+
+  @media only screen and (min-width: $media-first-breakpoint) {
+
+    &--burger {
+      margin-bottom: 1rem;
+    }
   }
 }
 
@@ -404,26 +422,31 @@ button {
 .quote {
   text-align: center;
   
+  &__heading {
+    font-size: 1.6rem;
+    font-weight: 600;
+    margin: 1rem 0;
+    color: rgba(255, 255, 255, 0.2);
+  }
+
   &__blockquote {
     border-radius: 2rem;
     box-shadow: 0 0 3rem rgba(0, 0, 0, 0.2);
-    padding: 3rem;
+    padding: 1rem;
     margin-bottom: 2rem;
     max-width: $layout-container-width;
   }
   
-  &__heading {
-    @include quote-text;
-    margin-bottom: 3rem;
-    font-size: 3rem;
-    color: rgba(255, 255, 255, 0.2);
-  }
-  
   &__text {
-    @include quote-text;
+    font-size: 1.4rem;
+    font-weight: 600;
     color: $color-main;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
     line-height: 1.5;
+  }
+
+  &__mark {
+    font-size: 2rem;
   }
   
   &__author {
@@ -434,11 +457,6 @@ button {
   @media only screen and (min-width: $media-first-breakpoint) {
     
     &__heading {
-      font-size: 4rem;
-      margin: 0;
-      position: absolute;
-      left: 5rem;
-      bottom: 3px;
     }
   }
 }
@@ -460,6 +478,7 @@ button {
   flex-grow: 0;
   text-align: center;
   font-size: 0.8rem;
+  color: #aaa;
 
   &--grid {
     color: $color-main;
