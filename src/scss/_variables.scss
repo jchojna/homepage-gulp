@@ -4,13 +4,21 @@ $images-amount: 27;
 // colors
 $color-main: rgb(96, 210, 214);
 $color-secondary: #dfd12f;
-// size
+
+// layout
 $layout-mobile-menu-margin: 30px;
 $layout-container-width: 1000px;
-$layout-border-radius: 1rem;
-$size-buttons: 100px;
+$layout-sm-padding: 1rem;
+$layout-sm-buttons-offset: 1.5rem;
+$layout-sm-grid-gap: 15px;
+
+// size
+$size-border-radius: 1rem;
+$size-sm-buttons: 70px;
+
 // media
 $media-first-breakpoint: 768px;
 $media-second-breakpoint: 1280px;
+
 // time
 $time-mobile-menu: 0.5s;

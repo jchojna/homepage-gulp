@@ -1,9 +1,11 @@
 const pageOverlay = document.querySelector('.page-overlay--js');
 const headerDescription = document.querySelector('.header__description--js');
-const burgerButton = document.querySelector('.buttons__burger--js');
+const gridContainer = document.querySelector('.nav__grid-container--js');
 const navListGrid = document.querySelector('.nav__grid-list--js');
-const burgerButtonUpperPart = document.querySelector('.buttons__burger-upper--js');
-const randomButton = document.querySelector('.buttons__random--js');
+const buttons = document.querySelector('.buttons--js');
+const burgerButton = document.querySelector('.button__burger--js');
+const burgerButtonUpperPart = document.querySelector('.button__burger-upper--js');
+const randomButton = document.querySelector('.button__random--js');
 
 const amountOfImages = 26;
 
@@ -29,8 +31,10 @@ const delayLink = (element) => {
 }
 
 const handleMobileMenu = () => {
-  burgerButtonUpperPart.classList.toggle('buttons__burger-upper--open');
-  navListGrid.classList.toggle('nav__grid-list--visible');
+  burgerButtonUpperPart.classList.toggle('button__burger-upper--open');
+  gridContainer.classList.toggle('nav__grid-container--visible');
+  buttons.classList.toggle('buttons--background');
+  randomButton.classList.toggle('button--hidden');
 }
 
 const make2DigitsNumber = (number) => {
@@ -40,11 +44,6 @@ const make2DigitsNumber = (number) => {
     return number;
   }
 }
-
-/* const ifPageAddressContains = (string) => {
-  const currentPageAddress = window.location.toString();
-  return currentPageAddress.includes(string);
-} */
 
 const generateMobileMenu = (parent) => {
   let navItemGrid, navLinkGrid, currentNumber;
