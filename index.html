@@ -15,38 +15,47 @@
 <body>
   <div class="page-overlay page-overlay--js page-overlay--onload"></div>
 
-  <section class="container container--grid">
+  <section class="container">
     <!-- MAIN HEADER -->
-    <header class="header header--grid">
-      <div class="header__container header__container--grid">
+    <header class="header header--centered">
+
+      <!-- HEADER -->
+      <div class="header__container header__container--centered">
         <h1 class="header__heading">Quotes</h1>
         <p class="header__description header__description--js">This website contains many useful quotations. Everyday a new quote!</p>
-      </div>
+      </div> <!-- END OF HEADER -->
       <nav class="nav">
 
-        <!-- GRID MENU -->
-        <ul class="nav__flex-list nav__grid-list nav__grid-list--js">
-          <li class="nav__item nav__grid-item">
-            <a href="index.html" class="nav__link nav__grid-link nav__grid-link--menu nav__link--js">start</a>
-          </li>
-          <li class="nav__item nav__grid-item nav__grid-item--contact">
-            <a href="contact.html" class="nav__link nav__grid-link nav__grid-link--contact nav__link--js">contact</a>
-          </li>
-        </ul> <!-- END OF GRID MENU -->
-
-        <div class="buttons">
-          <!-- BURGER BUTTON -->
-          <button class="button buttons__burger buttons__burger--js">
-            <img src="assets/svg/burger-button-upper.svg" class="buttons__burger-upper buttons__burger-upper--js" alt="burger upper part">
-            <img src="assets/svg/burger-button-bottom.svg" class="buttons__burger-bottom buttons__burger-bottom--js" alt="burger bottom part">
-          </button> <!-- END OF BURGER BUTTON -->
-  
-          <!-- RANDOM BUTTON -->
-          <a href="#" class="buttons__random buttons__random--js">
-            <img src="assets/dice.svg" alt="dice" class="buttons__random--svg">
-          </a> <!-- END OF RANDOM BUTTON -->
+        <div class="nav__grid-container nav__grid-container--js">
+          <!-- GRID MENU -->
+          <ul class="nav__grid-list nav__grid-list--js">
+            <li class="nav__item nav__grid-item">
+              <a href="index.html" class="nav__link nav__grid-link nav__grid-link--menu nav__link--js">start</a>
+            </li>
+            <li class="nav__item nav__grid-item nav__grid-item--contact">
+              <a href="contact.html" class="nav__link nav__grid-link nav__grid-link--contact nav__link--js">contact</a>
+            </li>
+          </ul> <!-- END OF GRID MENU -->
         </div>
 
+        <div class="buttons buttons--js">
+          <!-- BURGER BUTTON -->
+          <button class="button button--burger button__burger--js">
+            <img src="assets/svg/burger-button-upper.svg" class="button__burger-upper button__burger-upper--js" alt="burger upper part">
+            <img src="assets/svg/burger-button-bottom.svg" class="button__burger-bottom button__burger-bottom--js" alt="burger bottom part">
+          </button> <!-- END OF BURGER BUTTON -->
+
+          <!-- RANDOM BUTTON -->
+          <a href="#" class="button button--random button--hidden button__random--js">
+            <img src="assets/dice.svg" alt="dice" class="button__random-svg">
+          </a> <!-- END OF RANDOM BUTTON -->
+        </div>
+        
+        <!-- SECOND RANDOM BUTTON -->
+        <a href="#" class="button button--random button--bigger button__random--js">
+          <img src="assets/dice.svg" alt="dice" class="button__random-svg">
+        </a> <!-- END OF RANDOM BUTTON -->
+        
       </nav>
     </header> <!-- END OF MAIN HEADER -->
 
