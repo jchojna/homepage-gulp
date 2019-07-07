@@ -7,13 +7,14 @@ $color-secondary: #dfd12f;
 
 // layout
 $layout-mobile-menu-margin: 30px;
-$layout-container-width: 1000px;
+$layout-container-width: 800px;
+$layout-grid-container-width: 1000px;
 $layout-sm-padding: 1.5rem;
 $layout-sm-buttons-offset: 1.5rem;
-$layout-sm-grid-gap: 15px;
+$layout-sm-grid-gap: 10px;
 
 // size
-$size-border-radius: 1rem;
+$size-border-radius: 0.6rem;
 $size-sm-buttons: 70px;
 
 // media
@@ -22,3 +23,4 @@ $media-second-breakpoint: 1280px;
 
 // time
 $time-mobile-menu: 0.5s;
+$time-grid-items: 0.3s;

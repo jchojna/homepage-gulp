@@ -110,9 +110,11 @@ button {
   justify-content: flex-start;
   align-self: flex-start;
   width: 100%;
+  z-index: 1;
 
   &--centered {
     @include flex-center;
+    justify-content: flex-end;
     text-align: center;
     flex-grow: 1;
   }
@@ -144,7 +146,7 @@ button {
       justify-content: space-between;
       
       &--centered {
-        justify-content: center;
+        justify-content: flex-end;
         align-items: center;
       }
     
@@ -153,7 +155,7 @@ button {
       }
 
       &__heading {
-        font-size: 3rem;
+        font-size: 2.2rem;
       }
 
       &__description {
@@ -193,8 +195,7 @@ button {
     right: 0;
     bottom: 0;
     padding: 150px $layout-sm-padding;
-    background: #fff;
-    background: linear-gradient(45deg, $color-secondary 0%, rgba(96,210,214,1) 100%);
+    background: #000;
     visibility: hidden;
     overflow: auto;
     opacity: 0;
@@ -209,7 +210,7 @@ button {
   
   &__grid-list {
     width: 100%;
-    max-width: $media-second-breakpoint;
+    max-width: $layout-grid-container-width;
     height: 100%;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(120px,1fr));
@@ -221,6 +222,7 @@ button {
     &::after {
       content: "";
       height: $layout-sm-padding;
+      grid-column-start: 1;
       order: 1;
     }
   }
@@ -228,12 +230,11 @@ button {
   &__grid-item {
     min-height: 80px;
     max-height: 120px;
-    height: 100%;
     width: 100%;
-    border-radius: 20px;
+    border-radius: $size-border-radius;
     overflow: hidden;
     transform: scale(1);
-    transition: transform $time-mobile-menu;
+    transition: transform $time-grid-items;
     
     &--random,
     &--contact {
@@ -245,13 +246,14 @@ button {
     @include flex-center;
     color: #fff;
     font-size: 2rem;
+    font-weight: 500;
     text-decoration: none;
-    transition: all 0.3s;
+    transition: all $time-grid-items;
 
     &--icon:hover {
       color: $color-main;
       transform: scale(1.5);
-      transition: all 0.3s;
+      transition: all $time-grid-items;
     }
 
     &--disabled {
@@ -263,24 +265,46 @@ button {
   &__grid-link {
     height: 100%;
     width: 100%;
-    filter: saturate(0);
 
     @for $i from 1 to $images-amount {
       &--#{$i} {
         background: url("../assets/img/thumbs_200px/#{$i}.jpeg");
         background-position: center center;
         background-size: cover;
+        filter: saturate(0);
+      }
+      &--#{$i}::after {
+        content: "##{$i}";
+        opacity: 0;
+        transition: opacity $time-grid-items;
+      }
+      &--#{$i}:hover::after {
+        content: "##{$i}";
+        opacity: 1;
+        transition: opacity $time-grid-items;
+      }
+      &--#{$i}:hover {
+        filter: saturate(1);
+        transform: scale(1.5);
       }
     }
 
-    &:hover {
-      filter: saturate(1);
-      transform: scale(1.3);
-    }
 
-    &--menu,
+    &--menu {
+      background: none;
+
+      &:hover {
+        background-color: $color-main;
+      }
+    }
+    
     &--contact {
-      background-color: $color-secondary;
+      background: none;
+
+      &:hover {
+        background-color: $color-secondary;
+      }
+
     }
   }
   
@@ -297,9 +321,14 @@ button {
       justify-content: flex-start;
     }
 
-    &__grid-list {
-      padding: 100px;
+    &__grid-container {
+      background: linear-gradient(45deg, $color-secondary 0%, rgba(96,210,214,1) 100%);
     }
+
+    &__grid-list {
+      grid-template-columns: repeat(5, 1fr);
+    }
+
   }
 }
 
@@ -332,12 +361,12 @@ button {
   align-items: flex-start;
   padding: $layout-sm-buttons-offset;
   background-color: rgba(0,0,0,0);
-  transition: all $time-mobile-menu;
+  transition: all 0s;
   z-index: 1;
 
   &--background {
-    background-color: rgba(0,0,0,0.2);
-    transition: all $time-mobile-menu;
+    background-color: rgba(0,0,0,1);
+    transition: all 0s $time-mobile-menu;
   }
 
   @media only screen and (min-width: $media-first-breakpoint) {
@@ -406,8 +435,75 @@ button {
     &--burger {
       margin-bottom: 1rem;
     }
+
+    &--hidden-on-mobile {
+      visibility: visible;
+      opacity: 1;
+    }
   }
 }
+
+/*
+##     ##    ###    #### ##    ##
+###   ###   ## ##    ##  ###   ##
+#### ####  ##   ##   ##  ####  ##
+## ### ## ##     ##  ##  ## ## ##
+##     ## #########  ##  ##  ####
+##     ## ##     ##  ##  ##   ###
+##     ## ##     ## #### ##    ##
+*/
+
+.random {
+  flex-grow: 1;
+  display: flex;
+  justify-content: flex-start;
+
+  &__button {
+    width: 100px;
+    height: 100px;
+    position: relative;
+    white-space: nowrap;
+    text-align: center;
+
+    &::after {
+      content: "Pull random quote!";
+      position: absolute;
+      bottom: -2rem;
+      left: 50%;
+      transform: translate(-50%, -500%);
+      font-size: 0.8rem;
+      text-align: center;
+      color: #fff;
+      opacity: 0;
+      transition: all 0.5s;
+    }
+
+    &:hover {
+      @extend .button--random:hover;
+    }
+    
+    &:hover::after {
+      transform: translate(-50%, 0);
+      opacity: 1;
+      transition: all 0.5s 0.3s;
+    }
+  }
+
+  @media only screen and (min-width: $media-first-breakpoint) {
+    
+    &__button {
+      width: 150px;
+      height: 150px;
+
+      &::after {
+        font-size: 1rem;
+      }
+    }
+  }
+}
+
+
+
 
 /*
  #######  ##     ##  #######  ######## ########
@@ -425,14 +521,16 @@ button {
   &__heading {
     font-size: 1.6rem;
     font-weight: 600;
-    margin: 1rem 0;
+    margin-top: 4rem;
+    margin-bottom: -4rem;
     color: rgba(255, 255, 255, 0.2);
   }
 
   &__blockquote {
     border-radius: 2rem;
-    box-shadow: 0 0 3rem rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 0 50rem rgba(0, 0, 0, 0.2), 0 0 3rem rgba(0, 0, 0, 0.4);
     padding: 1rem;
+    padding-top: 5rem;
     margin-bottom: 2rem;
     max-width: $layout-container-width;
   }
@@ -455,9 +553,20 @@ button {
   }
 
   @media only screen and (min-width: $media-first-breakpoint) {
+
+    &__blockquote {
+      padding: 3rem;
+      padding-top: 8rem;
+    }
     
     &__heading {
+      font-size: 2.2rem;
+      margin-top: 6rem;
+      margin-bottom: -6rem;
     }
+
+    &__text { font-size: 2rem; }
+    &__mark { font-size: 3rem; }
   }
 }
 

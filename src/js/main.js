@@ -6,6 +6,7 @@ const buttons = document.querySelector('.buttons--js');
 const burgerButton = document.querySelector('.button__burger--js');
 const burgerButtonUpperPart = document.querySelector('.button__burger-upper--js');
 const randomButton = document.querySelector('.button__random--js');
+const mainRandomButton = document.querySelector('.random__button--js');
 
 const amountOfImages = 26;
 
@@ -57,8 +58,13 @@ const generateMobileMenu = (parent) => {
     navItemGrid.appendChild(navLinkGrid);
 
     navLinkGrid.setAttribute('href', `quote_${currentNumber}.html`);
-    navLinkGrid.textContent = `#${currentNumber}`;
+    //navLinkGrid.textContent = `#${currentNumber}`;
   }
+}
+
+const ifPageAddressContains = (string) => {
+  const pageAddress = window.location.toString();
+  return pageAddress.includes(string);
 }
 
 const generateRandomUrl = (obj) => {
@@ -81,7 +87,11 @@ window.onload = () => {
 }
 
 addWelcomeText('Dear', 'Guest');
+
 generateRandomUrl(randomButton);
+if ( ifPageAddressContains('index') ) {
+  generateRandomUrl(mainRandomButton);
+}
 
 /*
 ######## ##     ## ######## ##    ## ########  ######
@@ -99,6 +109,7 @@ if ( navListGrid.children.length <= 3 ) {
   generateMobileMenu(navListGrid);
 }
 
+ifPageAddressContains('fds');
 
 const navigationLinks = document.querySelectorAll('.nav__link--js');
 for ( let i = 0; i < navigationLinks.length; i++ ) {
