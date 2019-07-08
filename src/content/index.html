@@ -13,6 +13,7 @@
   
 </head>
 <body>
+  <!-- PAGE OVERLAY -->
   <div class="page-overlay page-overlay--js page-overlay--onload"></div>
 
   <section class="container">
@@ -40,14 +41,22 @@
 
         <div class="buttons buttons--js">
           <!-- BURGER BUTTON -->
-          <button class="button button--burger button__burger--js">
+          <!-- <button class="button button--burger button__burger--js">
             <img src="assets/svg/burger-button-upper.svg" class="button__burger-upper button__burger-upper--js" alt="burger upper part">
             <img src="assets/svg/burger-button-bottom.svg" class="button__burger-bottom button__burger-bottom--js" alt="burger bottom part">
-          </button> <!-- END OF BURGER BUTTON -->
+          </button> --> <!-- END OF BURGER BUTTON -->
+
+          <button class="button button--burger button__burger--js">
+            <svg class="button__burger-svg">
+              <use xlink:href="assets/svg/buttons-sprite-map.svg#svg-burger"/>
+            </svg>
+          </button>
 
           <!-- RANDOM BUTTON -->
           <a href="#" class="button button--random button--hidden button__random--js">
-            <img src="assets/dice.svg" alt="dice" class="button__random-svg">
+            <svg class="random__svg">
+              <use xlink:href="assets/svg/buttons-sprite-map.svg#svg-dice"/>
+            </svg>
           </a> <!-- END OF RANDOM BUTTON -->
         </div>
       </nav>
@@ -56,8 +65,10 @@
     <main class="random">
       <!-- MAIN RANDOM BUTTON -->
       <a href="#" class="random__button random__button--js">
-        <img src="assets/dice.svg" alt="dice" class="random__svg">
-      </a> <!-- END OF MAIN RANDOM BUTTON -->
+        <svg class="random__svg">
+          <use xlink:href="assets/svg/buttons-sprite-map.svg#svg-dice"/>
+        </svg>
+      </a>
     </main>
 
     <!-- FOOTER -->

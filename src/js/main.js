@@ -9,7 +9,6 @@ const randomButton = document.querySelector('.button__random--js');
 const mainRandomButton = document.querySelector('.random__button--js');
 
 const amountOfImages = 26;
-
 const mediaFirstBreakpoint = 768;
 
 const addWelcomeText = (firstName, lastName) => {
@@ -58,7 +57,6 @@ const generateMobileMenu = (parent) => {
     navItemGrid.appendChild(navLinkGrid);
 
     navLinkGrid.setAttribute('href', `quote_${currentNumber}.html`);
-    //navLinkGrid.textContent = `#${currentNumber}`;
   }
 }
 

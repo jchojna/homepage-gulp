@@ -231,10 +231,12 @@ button {
     min-height: 80px;
     max-height: 120px;
     width: 100%;
+    height: 100%;
     border-radius: $size-border-radius;
     overflow: hidden;
     transform: scale(1);
     transition: transform $time-grid-items;
+    position: relative;
     
     &--random,
     &--contact {
@@ -275,11 +277,13 @@ button {
       }
       &--#{$i}::after {
         content: "##{$i}";
+        top: 0;
+        left: 0;
+        width: 100%;
         opacity: 0;
         transition: opacity $time-grid-items;
       }
       &--#{$i}:hover::after {
-        content: "##{$i}";
         opacity: 1;
         transition: opacity $time-grid-items;
       }
@@ -412,6 +416,11 @@ button {
     }
   }
 
+  &__burger-svg {
+    fill: #fff;
+    width: 100%;
+  }
+
   &--random {
 
     &:hover {
@@ -442,6 +451,8 @@ button {
     }
   }
 }
+
+
 
 /*
 ##     ##    ###    #### ##    ##
@@ -476,6 +487,7 @@ button {
       color: #fff;
       opacity: 0;
       transition: all 0.5s;
+      pointer-events: none;
     }
 
     &:hover {
@@ -486,6 +498,15 @@ button {
       transform: translate(-50%, 0);
       opacity: 1;
       transition: all 0.5s 0.3s;
+    }
+  }
+
+  &__svg {
+    width: 100%;
+    fill: #fff;
+
+    &:hover {
+      fill: $color-main;
     }
   }
 
@@ -501,8 +522,6 @@ button {
     }
   }
 }
-
-
 
 
 /*
