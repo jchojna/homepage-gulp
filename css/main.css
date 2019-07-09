@@ -443,6 +443,38 @@ template {
   100% {
     opacity: 1; } }
 
+@-webkit-keyframes popIn {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale(0);
+            transform: scale(0); }
+  60% {
+    opacity: 1;
+    -webkit-transform: scale(1.15);
+            transform: scale(1.15); }
+  80% {
+    -webkit-transform: scale(0.9);
+            transform: scale(0.9); }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1); } }
+
+@keyframes popIn {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale(0);
+            transform: scale(0); }
+  60% {
+    opacity: 1;
+    -webkit-transform: scale(1.15);
+            transform: scale(1.15); }
+  80% {
+    -webkit-transform: scale(0.9);
+            transform: scale(0.9); }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1); } }
+
 .hidden {
   display: none !important;
   visibility: hidden; }
@@ -749,7 +781,6 @@ button {
           align-items: flex-start;
   margin-top: 1rem;
   text-align: center;
-  font-weight: 600;
   width: 100%; }
   .nav__flex-list {
     display: -webkit-box;
@@ -881,16 +912,109 @@ button {
   -webkit-transform: scale(1);
       -ms-transform: scale(1);
           transform: scale(1);
-  -webkit-transition: -webkit-transform 0.3s;
-  transition: -webkit-transform 0.3s;
-  -o-transition: transform 0.3s;
-  transition: transform 0.3s;
-  transition: transform 0.3s, -webkit-transform 0.3s;
-  position: relative; }
+  -webkit-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
+  position: relative;
+  -webkit-transform: scale(0);
+      -ms-transform: scale(0);
+          transform: scale(0);
+  opacity: 0; }
   .grid__item--random, .grid__item--contact {
     -webkit-box-ordinal-group: 2;
         -ms-flex-order: 1;
             order: 1; }
+  .grid__item--animated {
+    -webkit-animation: popIn 0.5s ease-out;
+            animation: popIn 0.5s ease-out;
+    -webkit-transform: scale(1);
+        -ms-transform: scale(1);
+            transform: scale(1);
+    opacity: 1; }
+  .grid__item--1 {
+    -webkit-animation-delay: 0.03s;
+            animation-delay: 0.03s; }
+  .grid__item--2 {
+    -webkit-animation-delay: 0.06s;
+            animation-delay: 0.06s; }
+  .grid__item--3 {
+    -webkit-animation-delay: 0.09s;
+            animation-delay: 0.09s; }
+  .grid__item--4 {
+    -webkit-animation-delay: 0.12s;
+            animation-delay: 0.12s; }
+  .grid__item--5 {
+    -webkit-animation-delay: 0.15s;
+            animation-delay: 0.15s; }
+  .grid__item--6 {
+    -webkit-animation-delay: 0.18s;
+            animation-delay: 0.18s; }
+  .grid__item--7 {
+    -webkit-animation-delay: 0.21s;
+            animation-delay: 0.21s; }
+  .grid__item--8 {
+    -webkit-animation-delay: 0.24s;
+            animation-delay: 0.24s; }
+  .grid__item--9 {
+    -webkit-animation-delay: 0.27s;
+            animation-delay: 0.27s; }
+  .grid__item--10 {
+    -webkit-animation-delay: 0.3s;
+            animation-delay: 0.3s; }
+  .grid__item--11 {
+    -webkit-animation-delay: 0.33s;
+            animation-delay: 0.33s; }
+  .grid__item--12 {
+    -webkit-animation-delay: 0.36s;
+            animation-delay: 0.36s; }
+  .grid__item--13 {
+    -webkit-animation-delay: 0.39s;
+            animation-delay: 0.39s; }
+  .grid__item--14 {
+    -webkit-animation-delay: 0.42s;
+            animation-delay: 0.42s; }
+  .grid__item--15 {
+    -webkit-animation-delay: 0.45s;
+            animation-delay: 0.45s; }
+  .grid__item--16 {
+    -webkit-animation-delay: 0.48s;
+            animation-delay: 0.48s; }
+  .grid__item--17 {
+    -webkit-animation-delay: 0.51s;
+            animation-delay: 0.51s; }
+  .grid__item--18 {
+    -webkit-animation-delay: 0.54s;
+            animation-delay: 0.54s; }
+  .grid__item--19 {
+    -webkit-animation-delay: 0.57s;
+            animation-delay: 0.57s; }
+  .grid__item--20 {
+    -webkit-animation-delay: 0.6s;
+            animation-delay: 0.6s; }
+  .grid__item--21 {
+    -webkit-animation-delay: 0.63s;
+            animation-delay: 0.63s; }
+  .grid__item--22 {
+    -webkit-animation-delay: 0.66s;
+            animation-delay: 0.66s; }
+  .grid__item--23 {
+    -webkit-animation-delay: 0.69s;
+            animation-delay: 0.69s; }
+  .grid__item--24 {
+    -webkit-animation-delay: 0.72s;
+            animation-delay: 0.72s; }
+  .grid__item--25 {
+    -webkit-animation-delay: 0.75s;
+            animation-delay: 0.75s; }
+  .grid__item--26 {
+    -webkit-animation-delay: 0.78s;
+            animation-delay: 0.78s; }
+  .grid__item--27 {
+    -webkit-animation-delay: 0.81s;
+            animation-delay: 0.81s; }
+  .grid__item--28 {
+    -webkit-animation-delay: 0.84s;
+            animation-delay: 0.84s; }
 
 .grid__link {
   display: -webkit-box;
@@ -1619,6 +1743,8 @@ button {
   top: 0;
   right: 0;
   width: 100%;
+  height: 100%;
+  max-height: 130px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1645,8 +1771,8 @@ button {
     transition: all 0s 0.5s; }
   @media only screen and (min-width: 768px) {
     .buttons {
-      height: 100%;
       max-width: 150px;
+      max-height: none;
       -webkit-box-orient: vertical;
       -webkit-box-direction: normal;
           -ms-flex-direction: column;
@@ -1675,7 +1801,10 @@ button {
   .button__svg {
     width: 100%;
     fill: #fff;
-    pointer-events: none; }
+    pointer-events: none;
+    -webkit-transition: fill 0.5s;
+    -o-transition: fill 0.5s;
+    transition: fill 0.5s; }
     .button__svg--burger {
       position: absolute;
       top: 0;
@@ -1686,16 +1815,19 @@ button {
       -webkit-transform-origin: 8% 55%;
           -ms-transform-origin: 8% 55%;
               transform-origin: 8% 55%;
-      -webkit-transition: -webkit-transform 0.5s;
-      transition: -webkit-transform 0.5s;
-      -o-transition: transform 0.5s;
-      transition: transform 0.5s;
-      transition: transform 0.5s, -webkit-transform 0.5s; }
+      -webkit-transition: fill 0.5s, -webkit-transform 0.5s;
+      transition: fill 0.5s, -webkit-transform 0.5s;
+      -o-transition: fill 0.5s, transform 0.5s;
+      transition: fill 0.5s, transform 0.5s;
+      transition: fill 0.5s, transform 0.5s, -webkit-transform 0.5s; }
     .button__svg--burger-open {
       -webkit-transform: rotateZ(-30deg);
           -ms-transform: rotate(-30deg);
               transform: rotateZ(-30deg); }
+  .button:hover .button__svg {
+    fill: #dfd12f; }
   .button--burger {
+    height: 100%;
     position: relative;
     cursor: pointer;
     -webkit-transition: -webkit-transform 0.3s;
@@ -1737,7 +1869,8 @@ button {
               transform: translate(-50%, -500%);
       font-size: 0.8rem;
       text-align: center;
-      color: #fff;
+      color: #dfd12f;
+      font-weight: bold;
       opacity: 0;
       -webkit-transition: all 0.5s;
       -o-transition: all 0.5s;
