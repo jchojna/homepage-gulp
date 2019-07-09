@@ -1,12 +1,17 @@
 const pageOverlay = document.querySelector('.page-overlay--js');
 const headerDescription = document.querySelector('.header__description--js');
-const gridContainer = document.querySelector('.nav__grid-container--js');
-const navListGrid = document.querySelector('.nav__grid-list--js');
+const gridContainer = document.querySelector('.grid__container--js');
+const gridList = document.querySelector('.grid__list--js');
+
 const buttons = document.querySelector('.buttons--js');
 const burgerButton = document.querySelector('.button__burger--js');
-const burgerButtonUpperPart = document.querySelector('.button__burger-upper--js');
+const burgerButtonUpperPart = document.querySelector('.button__svg--burger-upper-js');
 const randomButton = document.querySelector('.button__random--js');
-const mainRandomButton = document.querySelector('.random__button--js');
+const randomButtonMain = document.querySelector('.button__random-main--js');
+
+const navIcons = document.querySelectorAll('.nav__link--js');
+const arrowLeft = navIcons[0];
+const arrowRight = navIcons[1];
 
 const amountOfImages = 26;
 const mediaFirstBreakpoint = 768;
@@ -20,9 +25,9 @@ function fadeIn() {
   pageOverlay.classList.remove('page-overlay--onload');
 }
 
-const transitionPage = (event, callback, timeout) => {
+const transitionPage = (element, callback, timeout) => {
   event.preventDefault();
-  setTimeout(() => callback(event.target), timeout);
+  setTimeout(() => callback(element), timeout);
   pageOverlay.classList.add('page-overlay--visible');
 }
 
@@ -31,10 +36,17 @@ const delayLink = (element) => {
 }
 
 const handleMobileMenu = () => {
-  burgerButtonUpperPart.classList.toggle('button__burger-upper--open');
-  gridContainer.classList.toggle('nav__grid-container--visible');
+  const gridItems = document.querySelectorAll('.grid__item');
+
+  burgerButtonUpperPart.classList.toggle('button__svg--burger-open');
+  gridContainer.classList.toggle('grid__container--visible');
   buttons.classList.toggle('buttons--background');
   randomButton.classList.toggle('button--hidden');
+
+  for (let i = 0; i < gridItems.length; i++) {
+    gridItems[i].classList.toggle('grid__item--animated');
+    gridItems[i].classList.toggle(`grid__item--${i+1}`);
+  }
 }
 
 const make2DigitsNumber = (number) => {
@@ -46,17 +58,41 @@ const make2DigitsNumber = (number) => {
 }
 
 const generateMobileMenu = (parent) => {
-  let navItemGrid, navLinkGrid, currentNumber;
+  let gridItem, gridLink, currentNumber;
   for ( let i=1; i <= amountOfImages ; i++ ) {
-    navItemGrid = document.createElement('li');
-    navLinkGrid = document.createElement('a');
+    gridItem = document.createElement('li');
+    gridLink = document.createElement('a');
     currentNumber = make2DigitsNumber(i);
-    navItemGrid.className = "nav__item nav__grid-item";
-    navLinkGrid.className = `nav__link nav__grid-link nav__grid-link--${i} nav__link--js`;
-    parent.appendChild(navItemGrid);
-    navItemGrid.appendChild(navLinkGrid);
+    gridItem.className = "grid__item";
+    gridLink.className = `grid__link grid__link--${i} grid__link--js fade-link--js`;
+    parent.appendChild(gridItem);
+    gridItem.appendChild(gridLink);
 
-    navLinkGrid.setAttribute('href', `quote_${currentNumber}.html`);
+    gridLink.setAttribute('href', `quote_${currentNumber}.html`);
+  }
+}
+
+const getHrefOfElement = (element) => {
+  return element.getAttribute('href');
+}
+
+const handleKeyboard = (e) => {
+  const keyCode = e.keyCode;
+  
+  switch ( keyCode ) {
+    case 37:
+      if ( !arrowLeft.classList.contains('nav__link--disabled') ) {
+        transitionPage(arrowLeft, delayLink, 500);
+      }
+      break;
+    case 39:
+      if ( !arrowRight.classList.contains('nav__link--disabled') ) {
+        transitionPage(arrowRight, delayLink, 500);
+      }
+      break;
+    case 13:
+      transitionPage(randomButton, delayLink, 500);
+      break;
   }
 }
 
@@ -80,15 +116,14 @@ const generateRandomUrl = (obj) => {
  ######  ##     ## ######## ########  ######
 */
 
-window.onload = () => {
-  fadeIn();
-}
-
 addWelcomeText('Dear', 'Guest');
 
+window.onload = () => { fadeIn(); }
+
 generateRandomUrl(randomButton);
-if ( ifPageAddressContains('index') ) {
-  generateRandomUrl(mainRandomButton);
+
+if (randomButtonMain) {
+  generateRandomUrl(randomButtonMain);
 }
 
 /*
@@ -103,13 +138,15 @@ if ( ifPageAddressContains('index') ) {
 
 burgerButton.addEventListener('click', handleMobileMenu);
 
-if ( navListGrid.children.length <= 3 ) {
-  generateMobileMenu(navListGrid);
+if ( gridList.children.length <= 3 ) {
+  generateMobileMenu(gridList);
 }
 
-ifPageAddressContains('fds');
+const fadeLinks = document.querySelectorAll('.fade-link--js');
+for ( let i = 0; i < fadeLinks.length; i++ ) {
+  fadeLinks[i].addEventListener('click', () => transitionPage(event.target, delayLink, 500));
+}
 
-const navigationLinks = document.querySelectorAll('.nav__link--js');
-for ( let i = 0; i < navigationLinks.length; i++ ) {
-  navigationLinks[i].addEventListener('click', () => transitionPage(event, delayLink, 500));
+if ( arrowLeft ) {
+  window.addEventListener('keyup', handleKeyboard);
 }

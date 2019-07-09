@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,700,900&display=swap&subset=latin-ext');
+@import url('https://use.fontawesome.com/releases/v5.8.2/css/all.css');
 @import "normalize";
 @import "variables";
 @import "mixins";
@@ -25,11 +27,6 @@ body {
 button {
   background: none;
   border: none;
-}
-
-.fas {
-  font-size: 2rem;
-  pointer-events: none;
 }
 
 .fa-quote-right {
@@ -107,14 +104,12 @@ button {
   text-align: left;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  align-self: flex-start;
   width: 100%;
   z-index: 1;
 
   &--centered {
-    @include flex-center;
-    justify-content: flex-end;
+    justify-content: center;
+    align-items: center;
     text-align: center;
     flex-grow: 1;
   }
@@ -141,15 +136,7 @@ button {
   @media only screen and (min-width: $media-first-breakpoint) {
 
     & {
-      align-items: flex-start;
-      align-self: stretch;
-      justify-content: space-between;
-      
-      &--centered {
-        justify-content: flex-end;
-        align-items: center;
-      }
-    
+          
       &__container {
         max-width: none;
       }
@@ -178,6 +165,9 @@ button {
 
 .nav {
   @include flex-center;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
   margin-top: 1rem;
   text-align: center;
   width: 100%;
@@ -186,8 +176,76 @@ button {
     @include flex-center;
     list-style: none;
   }
+    
+  &__link {
+    @include flex-center;
+    color: #fff;
+    font-size: 4rem;
+    text-decoration: none;
+    transition: all $time-grid-items;
 
-  &__grid-container {
+    &--icon {
+
+      & > i {
+        font-size: 2.2rem;
+        pointer-events: none;
+      }
+
+      &:hover {
+        color: $color-main;
+        transform: scale(1.5);
+        transition: all $time-grid-items;
+      }
+    }
+
+    &--disabled {
+      opacity: 0.5;
+      pointer-events: none;
+    }
+  }
+  
+  &__day {
+    color: $color-main;
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin: 0 1rem;
+  }
+
+  @media only screen and (min-width: $media-first-breakpoint) {
+ 
+    & {
+      justify-content: flex-start;
+
+      &__link {
+        &--icon {
+          & > i {
+            font-size: 2.5rem;
+          }
+        }
+      }
+
+      &__day {
+        color: $color-main;
+        font-size: 1.4rem;
+        margin: 0 1rem;
+      }
+    }
+  }
+}
+
+/*
+ ######   ########  #### ########
+##    ##  ##     ##  ##  ##     ##
+##        ##     ##  ##  ##     ##
+##   #### ########   ##  ##     ##
+##    ##  ##   ##    ##  ##     ##
+##    ##  ##    ##   ##  ##     ##
+ ######   ##     ## #### ########
+*/
+
+.grid {
+
+  &__container {
     @include flex-center;
     position: fixed;
     top: 0;
@@ -200,7 +258,8 @@ button {
     overflow: auto;
     opacity: 0;
     transition: visibility 0s $time-mobile-menu, opacity $time-mobile-menu;
-
+    z-index: 1;
+  
     &--visible {
       visibility: visible;
       opacity: 1;
@@ -208,17 +267,18 @@ button {
     }
   }
   
-  &__grid-list {
+  &__list {
+    list-style: none;
     width: 100%;
-    max-width: $layout-grid-container-width;
     height: 100%;
     display: grid;
+    max-width: $layout-grid-container-width;
     grid-template-columns: repeat(auto-fill, minmax(120px,1fr));
     grid-gap: $layout-sm-grid-gap $layout-sm-grid-gap; 
     justify-items: stretch;
     align-items: stretch;
     z-index: 1;
-
+  
     &::after {
       content: "";
       height: $layout-sm-padding;
@@ -226,24 +286,37 @@ button {
       order: 1;
     }
   }
-    
-  &__grid-item {
+  
+  &__item {
     min-height: 80px;
     max-height: 120px;
     width: 100%;
     height: 100%;
     border-radius: $size-border-radius;
     overflow: hidden;
-    transform: scale(1);
-    transition: transform $time-grid-items;
+    transition: opacity $time-grid-items;
     position: relative;
-    
+    transform: scale(0);
+    opacity: 0;
+
     &--random,
     &--contact {
       order: 1;
     }
+
+    &--animated {
+      animation: popIn 0.5s ease-out;
+      animation-fill-mode: forwards;
+      opacity: 1;
+    }
+
+    @for $i from 1 to $images-amount+2 {
+      &--#{$i} {
+        animation-delay: #{$i * 0.03}s;
+      }
+    }
   }
-    
+
   &__link {
     @include flex-center;
     color: #fff;
@@ -251,20 +324,6 @@ button {
     font-weight: 500;
     text-decoration: none;
     transition: all $time-grid-items;
-
-    &--icon:hover {
-      color: $color-main;
-      transform: scale(1.5);
-      transition: all $time-grid-items;
-    }
-
-    &--disabled {
-      opacity: 0.5;
-      pointer-events: none;
-    }
-  }
-  
-  &__grid-link {
     height: 100%;
     width: 100%;
 
@@ -293,7 +352,6 @@ button {
       }
     }
 
-
     &--menu {
       background: none;
 
@@ -308,50 +366,29 @@ button {
       &:hover {
         background-color: $color-secondary;
       }
-
     }
-  }
-  
-  &__day {
-    color: $color-main;
-    font-size: 1.2rem;
-    font-weight: 800;
-    margin: 0 1rem;
   }
 
   @media only screen and (min-width: $media-first-breakpoint) {
- 
-    & {
-      justify-content: flex-start;
-    }
 
-    &__grid-container {
+    &__container {
       background: linear-gradient(45deg, $color-secondary 0%, rgba(96,210,214,1) 100%);
     }
 
-    &__grid-list {
+    &__list {
       grid-template-columns: repeat(5, 1fr);
     }
-
   }
 }
 
 /*
-########  ##     ## ########   ######   ######## ########
-##     ## ##     ## ##     ## ##    ##  ##       ##     ##
-##     ## ##     ## ##     ## ##        ##       ##     ##
-########  ##     ## ########  ##   #### ######   ########
-##     ## ##     ## ##   ##   ##    ##  ##       ##   ##
-##     ## ##     ## ##    ##  ##    ##  ##       ##    ##
-########   #######  ##     ##  ######   ######## ##     ##
-
-########  ##     ## ######## ########  #######  ##    ##
-##     ## ##     ##    ##       ##    ##     ## ###   ##
-##     ## ##     ##    ##       ##    ##     ## ####  ##
-########  ##     ##    ##       ##    ##     ## ## ## ##
-##     ## ##     ##    ##       ##    ##     ## ##  ####
-##     ## ##     ##    ##       ##    ##     ## ##   ###
-########   #######     ##       ##     #######  ##    ##
+########  ##     ## ######## ########  #######  ##    ##  ######
+##     ## ##     ##    ##       ##    ##     ## ###   ## ##    ##
+##     ## ##     ##    ##       ##    ##     ## ####  ## ##
+########  ##     ##    ##       ##    ##     ## ## ## ##  ######
+##     ## ##     ##    ##       ##    ##     ## ##  ####       ##
+##     ## ##     ##    ##       ##    ##     ## ##   ### ##    ##
+########   #######     ##       ##     #######  ##    ##  ######
 */
 
 .buttons {
@@ -359,6 +396,8 @@ button {
   top: 0;
   right: 0;
   width: 100%;
+  height: 100%;
+  max-height: 130px;
   display: flex;
   flex-direction: row-reverse;
   justify-content: space-between;
@@ -376,8 +415,10 @@ button {
   @media only screen and (min-width: $media-first-breakpoint) {
 
     & {
-      width: 200px;
+      max-width: 150px;
+      max-height: none;
       flex-direction: column;
+      justify-content: flex-start;
       align-items: flex-end;
     }
 
@@ -388,37 +429,53 @@ button {
 }
 
 .button {
-  display: block;
-  opacity: 1;
+  display: flex;
   width: 100%;
+  height: 100%;
+  max-height: $size-sm-buttons;
   max-width: $size-sm-buttons;
+  opacity: 1;
   transition: visibility 0s, opacity $time-mobile-menu;
 
+  &__svg {
+    width: 100%;
+    fill: #fff;
+    pointer-events: none;
+    transition: fill $time-mobile-menu;
+
+    &--burger {
+      position: absolute;
+      top: 0;
+      right: 0;
+      max-height: $size-sm-buttons;
+      max-width: $size-sm-buttons;
+    }
+
+    &--burger-upper {
+      transform-origin: 8% 55%;
+      transition: fill $time-mobile-menu, transform 0.5s;
+    }
+
+    &--burger-open {
+      transform: rotateZ(-30deg);
+    }
+
+  }
+  
+  &:hover .button__svg {
+    fill: $color-secondary;
+  }
+
   &--burger {
+    height: 100%;
+    position: relative;
     cursor: pointer;
     transition: transform 0.3s;
-    height: $size-sm-buttons;
 
     &:hover {
-      color: $color-main;
       transform: scale(1.3) rotate(15deg);
       transition: transform 0.3s;
     }
-  }
-
-  &__burger-upper {
-    width: 100%;
-    transform-origin: 5% 100%;
-    transition: transform 0.5s;
-
-    &--open {
-      transform: rotateZ(-20deg);
-    }
-  }
-
-  &__burger-svg {
-    fill: #fff;
-    width: 100%;
   }
 
   &--random {
@@ -428,6 +485,36 @@ button {
       transform: translate(0, 0);
     }
   }
+  
+  &--main  {
+    position: relative;
+    align-self: center;
+    white-space: nowrap;
+    text-align: center;
+    max-width: $size-sm-buttons * 1.5;
+    max-height: $size-sm-buttons * 1.5;
+
+    &::after {
+      content: "Pull random quote!";
+      position: absolute;
+      bottom: -2rem;
+      left: 50%;
+      transform: translate(-50%, -500%);
+      font-size: 0.8rem;
+      text-align: center;
+      color: $color-secondary;
+      font-weight: bold;
+      opacity: 0;
+      transition: all 0.5s;
+      pointer-events: none;
+    }
+    
+    &:hover::after {
+      transform: translate(-50%, 0);
+      opacity: 1;
+      transition: all 0.5s;
+    }
+  }
 
   &--hidden {
     opacity: 0;
@@ -435,9 +522,6 @@ button {
     transition: visibility 0s $time-mobile-menu, opacity $time-mobile-menu;
   }
   
-  &--bigger {
-    max-width: $size-sm-buttons * 1.5;
-  }
 
   @media only screen and (min-width: $media-first-breakpoint) {
 
@@ -449,73 +533,9 @@ button {
       visibility: visible;
       opacity: 1;
     }
-  }
-}
 
-
-
-/*
-##     ##    ###    #### ##    ##
-###   ###   ## ##    ##  ###   ##
-#### ####  ##   ##   ##  ####  ##
-## ### ## ##     ##  ##  ## ## ##
-##     ## #########  ##  ##  ####
-##     ## ##     ##  ##  ##   ###
-##     ## ##     ## #### ##    ##
-*/
-
-.random {
-  flex-grow: 1;
-  display: flex;
-  justify-content: flex-start;
-
-  &__button {
-    width: 100px;
-    height: 100px;
-    position: relative;
-    white-space: nowrap;
-    text-align: center;
-
-    &::after {
-      content: "Pull random quote!";
-      position: absolute;
-      bottom: -2rem;
-      left: 50%;
-      transform: translate(-50%, -500%);
-      font-size: 0.8rem;
-      text-align: center;
-      color: #fff;
-      opacity: 0;
-      transition: all 0.5s;
-      pointer-events: none;
-    }
-
-    &:hover {
-      @extend .button--random:hover;
-    }
-    
-    &:hover::after {
-      transform: translate(-50%, 0);
-      opacity: 1;
-      transition: all 0.5s 0.3s;
-    }
-  }
-
-  &__svg {
-    width: 100%;
-    fill: #fff;
-
-    &:hover {
-      fill: $color-main;
-    }
-  }
-
-  @media only screen and (min-width: $media-first-breakpoint) {
-    
-    &__button {
-      width: 150px;
-      height: 150px;
-
+    &--main {
+  
       &::after {
         font-size: 1rem;
       }
@@ -523,6 +543,50 @@ button {
   }
 }
 
+/*
+##    ## ######## ##    ## ########   #######     ###    ########  ########
+##   ##  ##        ##  ##  ##     ## ##     ##   ## ##   ##     ## ##     ##
+##  ##   ##         ####   ##     ## ##     ##  ##   ##  ##     ## ##     ##
+#####    ######      ##    ########  ##     ## ##     ## ########  ##     ##
+##  ##   ##          ##    ##     ## ##     ## ######### ##   ##   ##     ##
+##   ##  ##          ##    ##     ## ##     ## ##     ## ##    ##  ##     ##
+##    ## ########    ##    ########   #######  ##     ## ##     ## ########
+*/
+
+.keyboard {
+  display: none;
+
+  &__button {
+    fill: rgb(218, 218, 218);
+    width: $size-keyboard-button;
+    height: $size-keyboard-button;
+    border: 1px solid rgb(182, 182, 182);
+    border-radius: 0.5rem;
+    margin: 0 0.5rem;
+
+    &--left {
+      animation: slideLeft 2s ease-out infinite;
+    }
+    
+    &--right {
+      animation: slideRight 2s ease-out infinite;
+    }
+    
+    &--enter {
+      animation: fadeInOut 2s ease-out infinite;
+    }
+
+    &--hidden {
+      visibility: hidden;
+    }
+  }
+
+  @media only screen and (min-width: $media-first-breakpoint) {
+    & {
+      @include flex-center;
+    }
+  }
+}
 
 /*
  #######  ##     ##  #######  ######## ########
@@ -535,7 +599,11 @@ button {
 */
 
 .quote {
+  flex-grow: 1;
   text-align: center;
+  @include flex-center;
+  flex-direction: column;
+  justify-content: space-around;
   
   &__heading {
     font-size: 1.6rem;
