@@ -1740,7 +1740,7 @@ button {
   top: 0;
   right: 0;
   width: 100%;
-  height: 100%;
+  height: 50%;
   max-height: 130px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1761,6 +1761,8 @@ button {
   -o-transition: all 0s;
   transition: all 0s;
   z-index: 1; }
+  .buttons--fixed {
+    position: absolute; }
   .buttons--background {
     background-color: black;
     -webkit-transition: all 0s 0.5s;
@@ -1780,6 +1782,8 @@ button {
       -webkit-box-align: end;
           -ms-flex-align: end;
               align-items: flex-end; }
+    .buttons--fixed {
+      position: fixed; }
     .buttons--background {
       background: none; } }
 
@@ -2040,7 +2044,16 @@ button {
   -webkit-box-flex: 1;
       -ms-flex-positive: 1;
           flex-grow: 1;
-  text-align: center; }
+  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center; }
   .form__container {
     display: -ms-grid;
     display: grid;
@@ -2088,6 +2101,7 @@ button {
     color: #fff;
     font-size: 1.4rem;
     font-weight: bold;
+    margin-bottom: 2rem;
     padding: 0.7rem;
     border-radius: 0.5rem;
     background-color: #dfd12f;
