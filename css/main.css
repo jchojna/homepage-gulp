@@ -450,11 +450,11 @@ template {
             transform: scale(0); }
   60% {
     opacity: 1;
-    -webkit-transform: scale(1.15);
-            transform: scale(1.15); }
+    -webkit-transform: scale(1.1);
+            transform: scale(1.1); }
   80% {
-    -webkit-transform: scale(0.9);
-            transform: scale(0.9); }
+    -webkit-transform: scale(0.93);
+            transform: scale(0.93); }
   100% {
     -webkit-transform: scale(1);
             transform: scale(1); } }
@@ -466,11 +466,11 @@ template {
             transform: scale(0); }
   60% {
     opacity: 1;
-    -webkit-transform: scale(1.15);
-            transform: scale(1.15); }
+    -webkit-transform: scale(1.1);
+            transform: scale(1.1); }
   80% {
-    -webkit-transform: scale(0.9);
-            transform: scale(0.9); }
+    -webkit-transform: scale(0.93);
+            transform: scale(0.93); }
   100% {
     -webkit-transform: scale(1);
             transform: scale(1); } }
@@ -909,12 +909,11 @@ button {
   height: 100%;
   border-radius: 0.6rem;
   overflow: hidden;
-  -webkit-transform: scale(1);
-      -ms-transform: scale(1);
-          transform: scale(1);
-  -webkit-transition: all 0.3s;
-  -o-transition: all 0.3s;
-  transition: all 0.3s;
+  -webkit-transition: opacity 0.3s, -webkit-transform 0s 0.3s;
+  transition: opacity 0.3s, -webkit-transform 0s 0.3s;
+  -o-transition: transform 0s 0.3s, opacity 0.3s;
+  transition: transform 0s 0.3s, opacity 0.3s;
+  transition: transform 0s 0.3s, opacity 0.3s, -webkit-transform 0s 0.3s;
   position: relative;
   -webkit-transform: scale(0);
       -ms-transform: scale(0);
