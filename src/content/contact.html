@@ -12,9 +12,9 @@
   <div class="page-overlay page-overlay--js page-overlay--onload"></div>
 
   <!-- PAGE CONTAINER -->
-  <section class="container">
+  <section class="container container--contact">
     <!-- MAIN HEADER -->
-    <header class="header">
+    <header class="header header--contact">
       <!-- HEADER -->
       <div class="header__container">
         <h1 class="header__heading">Contact</h1>
@@ -34,7 +34,7 @@
           </ul>
         </div> <!-- END OF GRID MENU -->
         <!-- BUTTONS CONTAINER -->
-        <div class="buttons buttons--js">
+        <div class="buttons buttons--fixed buttons--js">
           <!-- BURGER BUTTON -->
           <button class="button button--burger button__burger--js">
             <svg class="button__svg button__svg--burger button__svg--burger-upper button__svg--burger-upper-js">
@@ -59,11 +59,11 @@
       <form action="http://dev.cotenfrontend.pl" method="post" class="form__container">
         <p class="form__element">
           <label for="name" class="form__label">Your name:</label>
-          <input type="text" name="name" id="name" class="form__input" autofocus>
+          <input type="text" name="name" id="name" class="form__input" autofocus autocomplete="off">
         </p>
         <p class="form__element">
           <label for="email" class="form__label">Your e-mail:</label>
-          <input type="email" name="email" id="email" class="form__input" required>
+          <input type="email" name="email" id="email" class="form__input" required autocomplete="off">
         </p>
         <p class="form__element">
           <label for="phone" class="form__label">Your phone number:</label>
@@ -72,9 +72,9 @@
         <div class="form__element">
           <label for="day" class="form__label">Your birth date:</label>
           <div class="form__birthdate">
-            <input type="number" name="birthdate" id="day" class="form__input form__input--birthdate">
-            <input type="number" name="birthdate" id="month" class="form__input form__input--birthdate">
-            <input type="number" name="birthdate" id="year" class="form__input form__input--birthdate">
+            <input type="number" min="1" max="31" name="birthdate" id="day" class="form__input form__input--birthdate">
+            <input type="number" min="1" max="12" name="birthdate" id="month" class="form__input form__input--birthdate">
+            <input type="number" min="1900" max="2019" name="birthdate" id="year" class="form__input form__input--birthdate">
           </div>
         </div>
         <p class="form__element">

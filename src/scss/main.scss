@@ -136,7 +136,7 @@ button {
   @media only screen and (min-width: $media-first-breakpoint) {
 
     & {
-          
+
       &__container {
         max-width: none;
       }
@@ -151,7 +151,6 @@ button {
     }
   }
 }
-
 
 /*
 ##    ##    ###    ##     ##
@@ -396,7 +395,7 @@ button {
   top: 0;
   right: 0;
   width: 100%;
-  height: 100%;
+  height: 50%;
   max-height: 130px;
   display: flex;
   flex-direction: row-reverse;
@@ -406,6 +405,10 @@ button {
   background-color: rgba(0,0,0,0);
   transition: all 0s;
   z-index: 1;
+
+  &--fixed {
+    position: absolute;
+  }
 
   &--background {
     background-color: rgba(0,0,0,1);
@@ -420,6 +423,10 @@ button {
       flex-direction: column;
       justify-content: flex-start;
       align-items: flex-end;
+    }
+
+    &--fixed {
+      position: fixed;
     }
 
     &--background {
@@ -702,6 +709,7 @@ button {
 .form {
   flex-grow: 1;
   text-align: center;
+  @include flex-center;
 
   &__container {
     display: grid;
@@ -755,6 +763,7 @@ button {
     color: #fff;
     font-size: 1.4rem;
     font-weight: bold;
+    margin-bottom: 2rem;
     padding: 0.7rem;
     border-radius: 0.5rem;
     background-color: $color-secondary;
