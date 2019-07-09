@@ -5,28 +5,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Quotes Collection</title>
-
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
-  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap" rel="stylesheet"> 
-
   <link rel="stylesheet" type="text/css" href="css/main.css">
 </head>
 <body>
   <div class="page-overlay page-overlay--js page-overlay--onload"></div>
   
+  <!-- PAGE CONTAINER -->
   <section class="container container--12">
     <!-- MAIN HEADER -->
     <header class="header">
+      <!-- HEADER -->
       <div class="header__container">
         <h1 class="header__heading">Quotes</h1>
         <p class="header__description header__description--js">This website contains many useful quotations. Everyday a new quote!</p>
-      </div>
+      </div> <!-- END OF HEADER -->
+      <!-- NAVIGATION -->
       <nav class="nav">
-
         <!-- FLEX MENU -->
         <ul class="nav__flex-list">
           <li class="nav__item">
-            <a href="quote_11.html" class="nav__link nav__link--icon nav__link--js">
+            <a href="quote_11.html" class="nav__link nav__link--icon nav__link--js fade-link--js">
               <i class="fas fa-angle-left"></i>
             </a>
           </li>
@@ -34,38 +32,41 @@
             <span class="nav__day">Day 12 - Saturday - 22.06.2019</span>
           </li>
           <li class="nav__item">
-            <a href="quote_13.html" class="nav__link nav__link--icon nav__link--js">
+            <a href="quote_13.html" class="nav__link nav__link--icon nav__link--js fade-link--js">
               <i class="fas fa-angle-right"></i>
             </a>
           </li>
         </ul> <!-- END OF FLEX MENU -->
-        
-        <div class="nav__grid-container nav__grid-container--js">
-          <!-- GRID MENU -->
-          <ul class="nav__grid-list nav__grid-list--js">
-            <li class="nav__item nav__grid-item">
-              <a href="index.html" class="nav__link nav__grid-link nav__grid-link--menu nav__link--js">start</a>
+        <!-- GRID MENU -->
+        <div class="grid__container grid__container--js">
+          <ul class="grid__list grid__list--js">
+            <li class="grid__item">
+              <a href="index.html" class="grid__link grid__link--menu grid__link--js fade-link--js">start</a>
             </li>
-            <li class="nav__item nav__grid-item nav__grid-item--contact">
-              <a href="contact.html" class="nav__link nav__grid-link nav__grid-link--contact nav__link--js">contact</a>
+            <li class="grid__item grid__item--contact">
+              <a href="contact.html" class="grid__link grid__link--contact grid__link--js fade-link--js">contact</a>
             </li>
-          </ul> <!-- END OF GRID MENU -->
-        </div>
-
+          </ul>
+        </div> <!-- END OF GRID MENU -->
+        <!-- BUTTONS CONTAINER -->
         <div class="buttons buttons--js">
           <!-- BURGER BUTTON -->
           <button class="button button--burger button__burger--js">
-            <img src="assets/svg/burger-button-upper.svg" class="button__burger-upper button__burger-upper--js" alt="burger upper part">
-            <img src="assets/svg/burger-button-bottom.svg" class="button__burger-bottom button__burger-bottom--js" alt="burger bottom part">
-          </button> <!-- END OF BURGER BUTTON -->
-
+            <svg class="button__svg button__svg--burger button__svg--burger-upper button__svg--burger-upper-js">
+              <use xlink:href="assets/svg/buttons-sprite-map.svg#svg-burger-upper"/>
+            </svg>
+            <svg class="button__svg button__svg--burger ">
+              <use xlink:href="assets/svg/buttons-sprite-map.svg#svg-burger-bottom"/>
+            </svg>
+          </button>  <!-- END OF BURGER BUTTON -->
           <!-- RANDOM BUTTON -->
-          <a href="#" class="button button--random button--hidden button--hidden-on-mobile button__random--js">
-            <img src="assets/dice.svg" alt="dice" class="button__random-svg">
+          <a href="#" class="button button--random button--hidden button__random--js fade-link--js">
+            <svg class="button__svg">
+              <use xlink:href="assets/svg/buttons-sprite-map.svg#svg-dice"/>
+            </svg>
           </a> <!-- END OF RANDOM BUTTON -->
-        </div>
-        
-      </nav>
+        </div> <!-- END OF BUTTONS CONTAINER -->
+      </nav> <!-- END OF NAVIGATION -->
     </header> <!-- END OF MAIN HEADER -->
 
     <!-- QUOTE -->
@@ -85,6 +86,18 @@
           </footer>
         </blockquote>
       </article>
+      <!-- KEYBOARD BUTTONS -->
+      <div class="keyboard">
+        <svg class="keyboard__button keyboard__button--left">
+          <use xlink:href="assets/svg/buttons-sprite-map.svg#svg-arrow-left"/>
+        </svg>
+        <svg class="keyboard__button keyboard__button--enter">
+          <use xlink:href="assets/svg/buttons-sprite-map.svg#svg-arrow-enter"/>
+        </svg>
+        <svg class="keyboard__button keyboard__button--right">
+          <use xlink:href="assets/svg/buttons-sprite-map.svg#svg-arrow-right"/>
+        </svg>
+      </div> <!-- END OF KEYBOARD BUTTONS -->
     </main> <!-- END OF QUOTE -->
 
     <!-- FOOTER -->
@@ -94,7 +107,7 @@
         Copyright &copy; 2019, Jakub Chojna. All rights reserved. Photography by Jakub Chojna
       </p>
     </footer> <!-- END OF FOOTER -->
-  </section>
+  </section> <!-- END OF PAGE CONTAINER -->
 
   <script src="js/main.js"></script>
 </body>
