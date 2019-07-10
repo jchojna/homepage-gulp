@@ -56,7 +56,8 @@
 
     <!-- CONTACT -->
     <main class="form">
-      <form action="http://dev.cotenfrontend.pl" method="post" class="form__container">
+      <!-- FORM -->
+      <form action="http://dev.cotenfrontend.pl" name="contactForm" method="post" class="form__container">
         <p class="form__element">
           <label for="name" class="form__label">Your name:</label>
           <input type="text" name="name" id="name" class="form__input" autofocus autocomplete="off">
@@ -97,10 +98,23 @@
           </div>
         </fieldset>
         <div class="form__element">
-          <button type="submit" class="form__submit-button">SEND</button>
+          <button type="submit" class="form__submit-button form__submit-button--js">SEND</button>
         </div>
-      </form>
+      </form> <!-- END OF FORM -->
+      <!-- MODAL BOX -->
+      <section class="modal modal--js">
+        <div class="modal__container modal__container--js">
+          <button class="modal__closeButton modal__closeButton--js">
+            <i class="fa fa-times" aria-hidden="true"></i>
+          </button>
+          <h2 class="modal__heading modal__heading--js"></h2>
+          <svg class="modal__svg modal__svg--declare modal__svg--js">
+            <use xlink:href="#"/>
+          </svg>
+        </div>
+      </section>
     </main> <!-- END OF CONTACT -->
+
 
     <!-- FOOTER -->
     <footer class="footer footer--grid">
