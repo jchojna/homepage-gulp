@@ -80,7 +80,7 @@
         </div>
         <p class="form__element">
           <label for="description" class="form__label">Your message:</label>
-          <textarea name="description" id="description" cols="30" rows="10" class="form__description"></textarea>
+          <textarea name="description" id="description" cols="30" rows="10" class="form__description" required></textarea>
         </p>
         <fieldset class="form__element form__element--fieldset">
           <div>
@@ -103,15 +103,24 @@
       </form> <!-- END OF FORM -->
       <!-- MODAL BOX -->
       <section class="modal modal--js">
+        <h2 class="visuallyhidden">Robot test response</h2>
         <div class="modal__container modal__container--js">
           <button class="modal__closeButton modal__closeButton--js">
             <i class="fa fa-times" aria-hidden="true"></i>
           </button>
-          <h2 class="modal__heading modal__heading--js"></h2>
+          <p class="modal__text modal__text--js"></p>
           <svg class="modal__svg modal__svg--declare modal__svg--js">
             <use xlink:href="#"/>
           </svg>
         </div>
+      </section> <!-- END OF MODAL BOX -->
+      <!-- MESSAGE -->
+      <section class="message message--js">
+        <h2 class="visuallyhidden">Message sent response</h2>
+        <p class="message__text">Message sent successfully!</p>
+        <button class="message__closeButton message__closeButton--js">
+          <i class="fa fa-times" aria-hidden="true"></i>
+        </button>
       </section>
     </main> <!-- END OF CONTACT -->
 

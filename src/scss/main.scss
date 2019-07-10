@@ -706,7 +706,9 @@ button {
     }
   }
 
-  &__heading {
+  &__text {
+    font-size: 1.4rem;
+    font-weight: bold;
     margin: 2rem 0;
   }
 
@@ -719,14 +721,44 @@ button {
   }
 
   &__closeButton {
-    cursor: pointer;
+    @include button;
     align-self: flex-end;
-    font-size: 2rem;
-    color: #fff;
-    transition: all $time-button-hover;
-    &:hover {
-      @include button-hover;
-    }
+  }
+}
+
+.message {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 50px 1fr 50px;
+  align-items: center;
+  justify-items: center;
+  padding: 0.6rem;
+  background-color: $color-secondary;
+  z-index: 2;
+  transform: translateY(-100%);
+  visibility: hidden;
+  transition: visibility 0s $time-message-slide, transform $time-message-slide;
+
+  &--visible {
+    transform: translateY(0);
+    visibility: visible;
+    transition: visibility 0s, transform $time-message-slide;
+  }
+
+  &__text {
+    padding: 1.5rem;
+    font-size: 1.6rem;
+    font-weight: bold;
+    grid-column-start: 2;
+  }
+
+  &__closeButton {
+    @include button;
+    grid-column-start: 3;
   }
 }
 

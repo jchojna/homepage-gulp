@@ -9,3 +9,13 @@
   transform: scale(1.5);
   transition: all $time-button-hover;
 }
+
+@mixin button {
+  cursor: pointer;
+  font-size: 2rem;
+  color: #fff;
+  transition: all $time-button-hover;
+  &:hover {
+    @include button-hover;
+  }
+}

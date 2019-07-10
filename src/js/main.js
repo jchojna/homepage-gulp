@@ -16,9 +16,12 @@ const arrowRight = navIcons[1];
 
 const modal = document.querySelector('.modal--js');
 const modalContainer = document.querySelector('.modal__container--js')
-const modalHeading = document.querySelector('.modal__heading--js');
+const modalText = document.querySelector('.modal__text--js');
 const modalCloseButton = document.querySelector('.modal__closeButton--js');
 const modalSvg = document.querySelector('.modal__svg--js');
+
+const message = document.querySelector('.message--js');
+const messageCloseButton = document.querySelector('.message__closeButton--js');
 
 const amountOfImages = 26;
 const mediaFirstBreakpoint = 768;
@@ -113,6 +116,18 @@ const generateRandomUrl = (obj) => {
   obj.setAttribute('href', `quote_${randomNumber}.html`);
 }
 
+const hideMessage = (handler) => {
+  message.classList.remove('message--visible');
+  messageCloseButton.removeEventListener('click', hideMessage);
+  clearTimeout(handler);
+}
+
+const showMessage = () => {
+  message.classList.add('message--visible');
+  const timeoutHandler = setTimeout( hideMessage, 3000 );
+  messageCloseButton.addEventListener('click', () => hideMessage(timeoutHandler));
+}
+
 const toggleModal = () => {
   modal.classList.toggle('modal--visible');
   modalContainer.classList.toggle('modal__container--pop-in');
@@ -132,11 +147,11 @@ const showModal = (input) => {
   
   switch (input) {
     case 'noInput':
-      modalHeading.textContent = 'You have to declare you are not a robot!';
+      modalText.textContent = 'You have to declare you are not a robot!';
       modalSvg.firstElementChild.setAttribute('xlink:href', 'assets/svg/buttons-sprite-map.svg#svg-declare');
       break;
     case 'robot':
-      modalHeading.textContent = 'No robots allowed here!';
+      modalText.textContent = 'No robots allowed here!';
       modalSvg.firstElementChild.setAttribute('xlink:href', 'assets/svg/buttons-sprite-map.svg#svg-robot');
       break;
     default: return false;
@@ -145,9 +160,9 @@ const showModal = (input) => {
   modalCloseButton.addEventListener('click', hideModal);
 }
 
-const validateForm = (e) => {
-
+const validateForm = (e) => {   // to be developed
   const robotTestResponse = document.contactForm.radio.value;
+  const formValid = document.contactForm.checkValidity();
 
   if ( robotTestResponse === "" ) {
     e.preventDefault();
@@ -157,7 +172,11 @@ const validateForm = (e) => {
     e.preventDefault();
     showModal('robot');
   }
-
+  
+  if ( formValid && robotTestResponse === "accept" ) {
+    e.preventDefault();
+    showMessage();
+  }
 }
 
 /*
