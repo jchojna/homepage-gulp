@@ -3,7 +3,12 @@
 
 ## Welcome on [my website](https://jchojna.github.io/homepage-gulp/) containing many useful quotes
 
-This website was created using HTML5, CSS3, SCSS, JavaScript, Gulp
+This website was created using:
+- HTML5
+- CSS3
+- SCSS
+- JavaScript
+- Gulp
 
 ## How to run it on your local machine:
 
