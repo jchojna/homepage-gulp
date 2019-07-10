@@ -4,6 +4,7 @@ $images-amount: 27;
 // colors
 $color-main: rgb(96, 210, 214);
 $color-secondary: #dfd12f;
+$color-gradient: linear-gradient(45deg, $color-secondary 0%, rgba(96,210,214,1) 100%);
 
 // layout
 $layout-mobile-menu-margin: 30px;
@@ -25,3 +26,5 @@ $media-second-breakpoint: 1280px;
 // time
 $time-mobile-menu: 0.5s;
 $time-grid-items: 0.3s;
+$time-modal: 0.6s;
+$time-button-hover: 0.2s;

@@ -8,10 +8,17 @@ const burgerButton = document.querySelector('.button__burger--js');
 const burgerButtonUpperPart = document.querySelector('.button__svg--burger-upper-js');
 const randomButton = document.querySelector('.button__random--js');
 const randomButtonMain = document.querySelector('.button__random-main--js');
+const submitButton = document.querySelector('.form__submit-button--js');
 
 const navIcons = document.querySelectorAll('.nav__link--js');
 const arrowLeft = navIcons[0];
 const arrowRight = navIcons[1];
+
+const modal = document.querySelector('.modal--js');
+const modalContainer = document.querySelector('.modal__container--js')
+const modalHeading = document.querySelector('.modal__heading--js');
+const modalCloseButton = document.querySelector('.modal__closeButton--js');
+const modalSvg = document.querySelector('.modal__svg--js');
 
 const amountOfImages = 26;
 const mediaFirstBreakpoint = 768;
@@ -106,6 +113,53 @@ const generateRandomUrl = (obj) => {
   obj.setAttribute('href', `quote_${randomNumber}.html`);
 }
 
+const toggleModal = () => {
+  modal.classList.toggle('modal--visible');
+  modalContainer.classList.toggle('modal__container--pop-in');
+}
+
+const hideModal = () => {
+  toggleModal();
+  for ( let element of modalSvg) {
+    element.classList.remove('modal__svg--visible');
+
+  }
+  modalCloseButton.removeEventListener('click', hideModal);
+}
+
+const showModal = (input) => {
+  toggleModal();
+  
+  switch (input) {
+    case 'noInput':
+      modalHeading.textContent = 'You have to declare you are not a robot!';
+      modalSvg.firstElementChild.setAttribute('xlink:href', 'assets/svg/buttons-sprite-map.svg#svg-declare');
+      break;
+    case 'robot':
+      modalHeading.textContent = 'No robots allowed here!';
+      modalSvg.firstElementChild.setAttribute('xlink:href', 'assets/svg/buttons-sprite-map.svg#svg-robot');
+      break;
+    default: return false;
+  }
+
+  modalCloseButton.addEventListener('click', hideModal);
+}
+
+const validateForm = (e) => {
+
+  const robotTestResponse = document.contactForm.radio.value;
+
+  if ( robotTestResponse === "" ) {
+    e.preventDefault();
+    showModal('noInput');
+  }
+  if ( robotTestResponse === "reject" ) {
+    e.preventDefault();
+    showModal('robot');
+  }
+
+}
+
 /*
  ######     ###    ##       ##        ######
 ##    ##   ## ##   ##       ##       ##    ##
@@ -126,6 +180,10 @@ if (randomButtonMain) {
   generateRandomUrl(randomButtonMain);
 }
 
+if ( gridList.children.length <= 3 ) {
+  generateMobileMenu(gridList);
+}
+
 /*
 ######## ##     ## ######## ##    ## ########  ######
 ##       ##     ## ##       ###   ##    ##    ##    ##
@@ -138,10 +196,6 @@ if (randomButtonMain) {
 
 burgerButton.addEventListener('click', handleMobileMenu);
 
-if ( gridList.children.length <= 3 ) {
-  generateMobileMenu(gridList);
-}
-
 const fadeLinks = document.querySelectorAll('.fade-link--js');
 for ( let i = 0; i < fadeLinks.length; i++ ) {
   fadeLinks[i].addEventListener('click', () => transitionPage(event.target, delayLink, 500));
@@ -149,4 +203,8 @@ for ( let i = 0; i < fadeLinks.length; i++ ) {
 
 if ( arrowLeft ) {
   window.addEventListener('keyup', handleKeyboard);
+}
+
+if ( submitButton ) {
+  submitButton.addEventListener('click', validateForm);
 }
