@@ -2070,7 +2070,9 @@ button {
               animation: popIn 0.5s ease-out;
       -webkit-animation-fill-mode: forwards;
               animation-fill-mode: forwards; }
-  .modal__heading {
+  .modal__text {
+    font-size: 1.4rem;
+    font-weight: bold;
     margin: 2rem 0; }
   .modal__svg {
     fill: #fff;
@@ -2080,14 +2082,74 @@ button {
     max-height: 100px; }
   .modal__closeButton {
     cursor: pointer;
-    -ms-flex-item-align: end;
-        align-self: flex-end;
     font-size: 2rem;
     color: #fff;
     -webkit-transition: all 0.2s;
     -o-transition: all 0.2s;
-    transition: all 0.2s; }
+    transition: all 0.2s;
+    -ms-flex-item-align: end;
+        align-self: flex-end; }
     .modal__closeButton:hover {
+      color: #60d2d6;
+      -webkit-transform: scale(1.5);
+          -ms-transform: scale(1.5);
+              transform: scale(1.5);
+      -webkit-transition: all 0.2s;
+      -o-transition: all 0.2s;
+      transition: all 0.2s; }
+
+.message {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 50px 1fr 50px;
+  grid-template-columns: 50px 1fr 50px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  justify-items: center;
+  padding: 0.6rem;
+  background-color: #dfd12f;
+  z-index: 2;
+  -webkit-transform: translateY(-100%);
+      -ms-transform: translateY(-100%);
+          transform: translateY(-100%);
+  visibility: hidden;
+  -webkit-transition: visibility 0s 0.3s, -webkit-transform 0.3s;
+  transition: visibility 0s 0.3s, -webkit-transform 0.3s;
+  -o-transition: visibility 0s 0.3s, transform 0.3s;
+  transition: visibility 0s 0.3s, transform 0.3s;
+  transition: visibility 0s 0.3s, transform 0.3s, -webkit-transform 0.3s; }
+  .message--visible {
+    -webkit-transform: translateY(0);
+        -ms-transform: translateY(0);
+            transform: translateY(0);
+    visibility: visible;
+    -webkit-transition: visibility 0s, -webkit-transform 0.3s;
+    transition: visibility 0s, -webkit-transform 0.3s;
+    -o-transition: visibility 0s, transform 0.3s;
+    transition: visibility 0s, transform 0.3s;
+    transition: visibility 0s, transform 0.3s, -webkit-transform 0.3s; }
+  .message__text {
+    padding: 1.5rem;
+    font-size: 1.6rem;
+    font-weight: bold;
+    -ms-grid-column: 2;
+        grid-column-start: 2; }
+  .message__closeButton {
+    cursor: pointer;
+    font-size: 2rem;
+    color: #fff;
+    -webkit-transition: all 0.2s;
+    -o-transition: all 0.2s;
+    transition: all 0.2s;
+    -ms-grid-column: 3;
+        grid-column-start: 3; }
+    .message__closeButton:hover {
       color: #60d2d6;
       -webkit-transform: scale(1.5);
           -ms-transform: scale(1.5);
