@@ -1,28 +1,31 @@
+// OVERALL
 const pageOverlay = document.querySelector('.page-overlay--js');
 const headerDescription = document.querySelector('.header__description--js');
 const gridContainer = document.querySelector('.grid__container--js');
 const gridList = document.querySelector('.grid__list--js');
-
+// BUTTONS
 const buttons = document.querySelector('.buttons--js');
 const burgerButton = document.querySelector('.button__burger--js');
 const burgerButtonUpperPart = document.querySelector('.button__svg--burger-upper-js');
 const randomButton = document.querySelector('.button__random--js');
 const randomButtonMain = document.querySelector('.button__random-main--js');
 const submitButton = document.querySelector('.form__submit-button--js');
-
+// ICONS
 const navIcons = document.querySelectorAll('.nav__link--js');
 const arrowLeft = navIcons[0];
 const arrowRight = navIcons[1];
-
+// CONTACT FORM
+const formInputs = document.querySelectorAll('.form__input--js');
+// MODAL BOX
 const modal = document.querySelector('.modal--js');
 const modalContainer = document.querySelector('.modal__container--js')
 const modalText = document.querySelector('.modal__text--js');
 const modalCloseButton = document.querySelector('.modal__closeButton--js');
 const modalSvg = document.querySelector('.modal__svg--js');
-
+// MESSAGE
 const message = document.querySelector('.message--js');
 const messageCloseButton = document.querySelector('.message__closeButton--js');
-
+// VARIABLES
 const amountOfImages = 26;
 const mediaFirstBreakpoint = 768;
 
@@ -179,6 +182,20 @@ const validateForm = (e) => {   // to be developed
   }
 }
 
+const handleFormInputs = (e) => {
+  const inputIndex = e.target.index;
+  sessionStorage.setItem(`formInput-${inputIndex}`, e.target.value);
+}
+
+
+
+
+
+
+
+
+
+
 /*
  ######     ###    ##       ##        ######
 ##    ##   ## ##   ##       ##       ##    ##
@@ -226,4 +243,16 @@ if ( arrowLeft ) {
 
 if ( submitButton ) {
   submitButton.addEventListener('click', validateForm);
+}
+
+if ( formInputs ) {
+  for (let i = 0; i < formInputs.length; i++) {
+    const currentInput = formInputs[i];
+    currentInput.index = i;
+    currentInput.addEventListener('keyup', handleFormInputs);
+
+    if ( sessionStorage.getItem(`formInput-${i}`) ) {
+      formInputs[i].value = sessionStorage.getItem(`formInput-${i}`);
+    }
+  }
 }
