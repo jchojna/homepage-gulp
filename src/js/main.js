@@ -16,6 +16,7 @@ const arrowLeft = navIcons[0];
 const arrowRight = navIcons[1];
 // CONTACT FORM
 const formInputs = document.querySelectorAll('.form__input--js');
+const formInputRequired = document.querySelectorAll('.form__input--required-js');
 // MODAL BOX
 const modal = document.querySelector('.modal--js');
 const modalContainer = document.querySelector('.modal__container--js')
@@ -187,13 +188,15 @@ const handleFormInputs = (e) => {
   sessionStorage.setItem(`formInput-${inputIndex}`, e.target.value);
 }
 
-
-
-
-
-
-
-
+/* const formCustomValidity = (input) => {
+  input.addEventListener('input', () => {
+    if (input.validity.typeMismatch) {
+      input.setCustomValidity('I expect an email, darling!');
+    } else {
+      input.setCustomValidity('');
+    }
+  })
+} */
 
 
 /*
@@ -255,4 +258,8 @@ if ( formInputs ) {
       formInputs[i].value = sessionStorage.getItem(`formInput-${i}`);
     }
   }
+
+  /* for (let i = 0; i < formInputRequired.length; i++) {
+    formCustomValidity(formInputRequired[i]);
+  } */
 }
