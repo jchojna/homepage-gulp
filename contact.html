@@ -1,199 +1,279 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Quotes Collection</title>
-  <link rel="stylesheet" type="text/css" href="css/main.css">
-  
-</head>
-<body>
-  <div class="page-overlay page-overlay--js page-overlay--onload"></div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Contact</title>
+    <meta
+      name="description"
+      content="This website contains many useful and funny quotes by famous people"
+    />
 
-  <!-- PAGE CONTAINER -->
-  <section class="container container--contact">
-    <!-- MAIN HEADER -->
-    <header class="header header--contact">
-      <!-- HEADER -->
-      <div class="header__container">
-        <h1 class="header__heading">Contact</h1>
-        <p class="header__description header__description--js">Feel free to contact me anytime!</p>
-      </div> <!-- END OF HEADER -->
-      <!-- NAVIGATION -->
-      <nav class="nav">
-        <!-- GRID MENU -->
-        <div class="grid__container grid__container--js">
-          <ul class="grid__list grid__list--js">
-            <li class="grid__item">
-              <a href="index.html" class="grid__link grid__link--menu grid__link--js fade-link--js">start</a>
-            </li>
-            <li class="grid__item grid__item--contact">
-              <a href="contact.html" class="grid__link grid__link--contact grid__link--js fade-link--js">contact</a>
-            </li>
-          </ul>
-        </div> <!-- END OF GRID MENU -->
-        <!-- BUTTONS CONTAINER -->
-        <div class="buttons buttons--fixed buttons--js">
-          <!-- BURGER BUTTON -->
-          <button class="button button--burger button__burger--js">
-            <svg class="button__svg button__svg--burger button__svg--burger-upper button__svg--burger-upper-js">
-              <use xlink:href="assets/svg/buttons-sprite-map.svg#svg-burger-upper"/>
-            </svg>
-            <svg class="button__svg button__svg--burger ">
-              <use xlink:href="assets/svg/buttons-sprite-map.svg#svg-burger-bottom"/>
-            </svg>
-          </button>  <!-- END OF BURGER BUTTON -->
-          <!-- RANDOM BUTTON -->
-          <a href="#" class="button button--random button--hidden button__random--js fade-link--js">
-            <svg class="button__svg">
-              <use xlink:href="assets/svg/buttons-sprite-map.svg#svg-dice"/>
-            </svg>
-          </a> <!-- END OF RANDOM BUTTON -->
-        </div> <!-- END OF BUTTONS CONTAINER -->
-      </nav>
-    </header> <!-- END OF MAIN HEADER -->
+    <!-- Open Graph -->
+    <meta property="og:title" content="Collection of Quotes" />
+    <meta property="og:description" content="Here you can find some useful and funny quotes by famous people" />
+    <meta property="og:url" content="https://jchojna.github.io/homepage-gulp/" />
+    <meta
+      property="og:image"
+      content="https://jchojna.github.io/homepage-gulp/assets/img/cover.jpg"
+    />
 
-    <!-- CONTACT -->
-    <main class="form">
-      <!-- FORM -->
-      <form action="http://dev.cotenfrontend.pl" name="contactForm" method="post" class="form__container">
-        <p class="form__element">
-          <label for="name" class="form__label">Your name:</label>
-          <input
-            type="text"
-            name="name"
-            id="name"
-            class="form__input form__input--js"
-            autofocus
-            autocomplete="off">
-        </p>
-        <p class="form__element">
-          <label for="email" class="form__label">Your e-mail:</label>
-          <input
-            type="email"
-            name="email"
-            id="email"
-            class="form__input form__input--js form__input--required-js"
-            required
-            oninvalid="this.setCustomValidity('Please enter your e-mail')"
-            oninput="this.setCustomValidity('')"
-            on
-            autocomplete="off">
-        </p>
-        <p class="form__element">
-          <label for="phone" class="form__label">Your phone number:</label>
-          <input
-            type="tel"
-            name="phone"
-            id="phone"
-            class="form__input form__input--js"
-            pattern="[0-9]{3}-[0-9]{3}-[0-9]{3}"
-            placeholder="XXX-XXX-XXX"
-            autocomplete="off">
-        </p>
-        <div class="form__element">
-          <label for="day" class="form__label">Your birth date:</label>
-          <div class="form__birthdate">
-            <input
-              type="number"
-              min="1"
-              max="31"
-              name="birthdate"
-              id="day"
-              class="form__input form__input--birthdate form__input--js"
-              autocomplete="off">
-            <input
-              type="number"
-              min="1" max="12"
-              name="birthdate"
-              id="month"
-              class="form__input form__input--birthdate form__input--js"
-              autocomplete="off">
-            <input
-              type="number"
-              min="1900"
-              max="2019"
-              name="birthdate"
-              id="year"
-              class="form__input form__input--birthdate form__input--js"
-              autocomplete="off">
-          </div>
+    <!-- <link rel="manifest" href="manifest.json" />
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <link
+      rel="apple-touch-icon"
+      sizes="192x192"
+      href="assets/pwa/icons/icon-192x192.png"
+    />
+
+    <link
+      rel="icon"
+      type="image/png"
+      href="assets/pwa/icons/icon-192x192.png"
+    /> -->
+
+    <link rel="stylesheet" type="text/css" href="css/main.css" />
+  </head>
+  <body>
+    <div class="page-overlay page-overlay--js page-overlay--onload"></div>
+
+    <!-- PAGE CONTAINER -->
+    <section class="container container--contact">
+      <!-- MAIN HEADER -->
+      <header class="header header--contact">
+        <!-- HEADER -->
+        <div class="header__container">
+          <h1 class="header__heading">Contact</h1>
+          <p class="header__description header__description--js">
+            Feel free to contact me anytime!
+          </p>
         </div>
-        <p class="form__element">
-          <label for="description" class="form__label">Your message:</label>
-          <textarea
-            name="description"
-            id="description"
-            cols="30"
-            rows="10"
-            class="form__description form__input--js form__input--required-js"
-            oninvalid="this.setCustomValidity('Please enter your message')"
-            oninput="this.setCustomValidity('')"
-            required></textarea>
-        </p>
-        <fieldset class="form__element form__element--fieldset">
-          <div>
-            <legend class="form__legend">Are you a robot ?</legend>
+        <!-- END OF HEADER -->
+        <!-- NAVIGATION -->
+        <nav class="nav">
+          <!-- GRID MENU -->
+          <div class="grid__container grid__container--js">
+            <ul class="grid__list grid__list--js">
+              <li class="grid__item">
+                <a
+                  href="index.html"
+                  class="grid__link grid__link--menu grid__link--js fade-link--js"
+                  >start</a
+                >
+              </li>
+              <li class="grid__item grid__item--contact">
+                <a
+                  href="contact.html"
+                  class="grid__link grid__link--contact grid__link--js fade-link--js"
+                  >contact</a
+                >
+              </li>
+            </ul>
           </div>
-          <div class="form__radio-set">
-            <p class="form__radio">
-              <label for="radio1" class="form__label">No, I'm not a robot</label>
-              <input
-                type="radio"
-                name="radio"
-                value="accept"
-                id="radio1"
-                class="form__input-radio form__input--js">
-            </p>
-            <p class="form__radio">
-              <label for="radio2" class="form__label">Yes, I'm</label>
-              <input
-                type="radio"
-                name="radio"
-                value="reject"
-                id="radio2"
-                class="form__input-radio form__input--js">
-            </p>
+          <!-- END OF GRID MENU -->
+          <!-- BUTTONS CONTAINER -->
+          <div class="buttons buttons--fixed buttons--js">
+            <!-- BURGER BUTTON -->
+            <button class="button button--burger button__burger--js">
+              <svg
+                class="button__svg button__svg--burger button__svg--burger-upper button__svg--burger-upper-js"
+              >
+                <use
+                  xlink:href="assets/svg/buttons-sprite-map.svg#svg-burger-upper"
+                />
+              </svg>
+              <svg class="button__svg button__svg--burger ">
+                <use
+                  xlink:href="assets/svg/buttons-sprite-map.svg#svg-burger-bottom"
+                />
+              </svg>
+            </button>
+            <!-- END OF BURGER BUTTON -->
+            <!-- RANDOM BUTTON -->
+            <a
+              href="#"
+              class="button button--random button--hidden button__random--js fade-link--js"
+            >
+              <svg class="button__svg">
+                <use xlink:href="assets/svg/buttons-sprite-map.svg#svg-dice" />
+              </svg>
+            </a>
+            <!-- END OF RANDOM BUTTON -->
           </div>
-        </fieldset>
-        <div class="form__element">
-          <button type="submit" class="form__submit-button form__submit-button--js">SEND</button>
-        </div>
-      </form> <!-- END OF FORM -->
-      <!-- MODAL BOX -->
-      <section class="modal modal--js">
-        <h2 class="visuallyhidden">Robot test response</h2>
-        <div class="modal__container modal__container--js">
-          <button class="modal__closeButton modal__closeButton--js">
+          <!-- END OF BUTTONS CONTAINER -->
+        </nav>
+      </header>
+      <!-- END OF MAIN HEADER -->
+
+      <!-- CONTACT -->
+      <main class="form">
+        <!-- FORM -->
+        <form
+          action="http://dev.cotenfrontend.pl"
+          name="contactForm"
+          method="post"
+          class="form__container"
+        >
+          <p class="form__element">
+            <label for="name" class="form__label">Your name:</label>
+            <input
+              type="text"
+              name="name"
+              id="name"
+              class="form__input form__input--js"
+              autofocus
+              autocomplete="off"
+            />
+          </p>
+          <p class="form__element">
+            <label for="email" class="form__label">Your e-mail:</label>
+            <input
+              type="email"
+              name="email"
+              id="email"
+              class="form__input form__input--js form__input--required-js"
+              required
+              oninvalid="this.setCustomValidity('Please enter your e-mail')"
+              oninput="this.setCustomValidity('')"
+              on
+              autocomplete="off"
+            />
+          </p>
+          <p class="form__element">
+            <label for="phone" class="form__label">Your phone number:</label>
+            <input
+              type="tel"
+              name="phone"
+              id="phone"
+              class="form__input form__input--js"
+              pattern="[0-9]{3}-[0-9]{3}-[0-9]{3}"
+              placeholder="XXX-XXX-XXX"
+              autocomplete="off"
+            />
+          </p>
+          <div class="form__element">
+            <label for="day" class="form__label">Your birth date:</label>
+            <div class="form__birthdate">
+              <input
+                type="number"
+                min="1"
+                max="31"
+                name="birthdate"
+                id="day"
+                class="form__input form__input--birthdate form__input--js"
+                autocomplete="off"
+              />
+              <input
+                type="number"
+                min="1"
+                max="12"
+                name="birthdate"
+                id="month"
+                class="form__input form__input--birthdate form__input--js"
+                autocomplete="off"
+              />
+              <input
+                type="number"
+                min="1900"
+                max="2019"
+                name="birthdate"
+                id="year"
+                class="form__input form__input--birthdate form__input--js"
+                autocomplete="off"
+              />
+            </div>
+          </div>
+          <p class="form__element">
+            <label for="description" class="form__label">Your message:</label>
+            <textarea
+              name="description"
+              id="description"
+              cols="30"
+              rows="10"
+              class="form__description form__input--js form__input--required-js"
+              oninvalid="this.setCustomValidity('Please enter your message')"
+              oninput="this.setCustomValidity('')"
+              required
+            ></textarea>
+          </p>
+          <fieldset class="form__element form__element--fieldset">
+            <div>
+              <legend class="form__legend">Are you a robot ?</legend>
+            </div>
+            <div class="form__radio-set">
+              <p class="form__radio">
+                <label for="radio1" class="form__label"
+                  >No, I'm not a robot</label
+                >
+                <input
+                  type="radio"
+                  name="radio"
+                  value="accept"
+                  id="radio1"
+                  class="form__input-radio form__input--js"
+                />
+              </p>
+              <p class="form__radio">
+                <label for="radio2" class="form__label">Yes, I'm</label>
+                <input
+                  type="radio"
+                  name="radio"
+                  value="reject"
+                  id="radio2"
+                  class="form__input-radio form__input--js"
+                />
+              </p>
+            </div>
+          </fieldset>
+          <div class="form__element">
+            <button
+              type="submit"
+              class="form__submit-button form__submit-button--js"
+            >
+              SEND
+            </button>
+          </div>
+        </form>
+        <!-- END OF FORM -->
+        <!-- MODAL BOX -->
+        <section class="modal modal--js">
+          <h2 class="visuallyhidden">Robot test response</h2>
+          <div class="modal__container modal__container--js">
+            <button class="modal__closeButton modal__closeButton--js">
+              <i class="fa fa-times" aria-hidden="true"></i>
+            </button>
+            <p class="modal__text modal__text--js"></p>
+            <svg class="modal__svg modal__svg--declare modal__svg--js">
+              <use xlink:href="#" />
+            </svg>
+          </div>
+        </section>
+        <!-- END OF MODAL BOX -->
+        <!-- MESSAGE -->
+        <section class="message message--js">
+          <h2 class="visuallyhidden">Message sent response</h2>
+          <p class="message__text">Message sent successfully!</p>
+          <button class="message__closeButton message__closeButton--js">
             <i class="fa fa-times" aria-hidden="true"></i>
           </button>
-          <p class="modal__text modal__text--js"></p>
-          <svg class="modal__svg modal__svg--declare modal__svg--js">
-            <use xlink:href="#"/>
-          </svg>
-        </div>
-      </section> <!-- END OF MODAL BOX -->
-      <!-- MESSAGE -->
-      <section class="message message--js">
-        <h2 class="visuallyhidden">Message sent response</h2>
-        <p class="message__text">Message sent successfully!</p>
-        <button class="message__closeButton message__closeButton--js">
-          <i class="fa fa-times" aria-hidden="true"></i>
-        </button>
-      </section>
-    </main> <!-- END OF CONTACT -->
+        </section>
+      </main>
+      <!-- END OF CONTACT -->
 
+      <!-- FOOTER -->
+      <footer class="footer footer--grid">
+        <h2 class="footer__heading visuallyhidden">Copyrights</h2>
+        <p class="footer__copyright">
+          Copyright &copy; 2019, Jakub Chojna. All rights reserved. Photography
+          by Jakub Chojna
+        </p>
+      </footer>
+      <!-- END OF FOOTER -->
+    </section>
+    <!-- END OF PAGE CONTAINER -->
 
-    <!-- FOOTER -->
-    <footer class="footer footer--grid">
-      <h2 class="footer__heading visuallyhidden">Copyrights</h2>
-      <p class="footer__copyright">
-        Copyright &copy; 2019, Jakub Chojna. All rights reserved. Photography by Jakub Chojna
-      </p>
-    </footer> <!-- END OF FOOTER -->
-  </section> <!-- END OF PAGE CONTAINER -->
-
-  <script src="js/main.js"></script>
-</body>
+    <script src="js/main.js"></script>
+  </body>
 </html>
